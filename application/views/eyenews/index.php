@@ -84,12 +84,12 @@ print '
 <div class="col-xs-12 col-sm-12">
 <div class="row">
 <div class="col-xs-6 col-sm-6"><div class="row" style="padding:2px;" id="t100"><a href="<?=base_url()?>eyenews/search/Liga" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Liga</a></div></div>
-<div class="col-xs-6 col-sm-6"><div class="row" style="padding:2px;" id="t100"><a href="<?=base_url()?>eyenews/search/Berita" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Peristiwa</a></div></div>
+<div class="col-xs-6 col-sm-6"><div class="row" style="padding:2px;" id="t100"><a href="<?=base_url()?>eyenews/search/Berita" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Berita</a></div></div>
 </div>
 </div><br><br>
 <div class="col-xs-12 col-sm-12">
 <div class="row">
-<div class="col-xs-6 col-sm-6"><div class="row" style="padding:2px;" id="t100"><a href="<?=base_url()?>eyenews/search/Usia Muda" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Pembinaan</a></div></div>
+<div class="col-xs-6 col-sm-6"><div class="row" style="padding:2px;" id="t100"><a href="<?=base_url()?>eyenews/search/Usia Muda" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Usia</a></div></div>
 <div class="col-xs-6 col-sm-6"><div class="row" style="padding:2px;" id="t100"><a href="<?=base_url()?>eyenews/search/Soccer Sains" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Soccer Sains</a></div></div>
 </div>
 </div><br><br>
@@ -253,17 +253,17 @@ echo "</ul></center>";
 
 <div class="col-lg-4 col-md-4 col-xs-12"><div class="hidden-xs hiddem-sm"><br><br><br><br></div>
 
-<img src="<?php echo base_url()?>systems/eyeads_storage/<?php print $array[0][3]; ?>" class="img img-responsive"><div class="hidden-xs hidden-sm"></div>
-<!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!--<img src="<?php // echo base_url()?>systems/eyeads_storage/<?php // print $array[0][3]; ?>" class="img img-responsive"><div class="hidden-xs hidden-sm"><br></div>-->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- ads unit 3 -->
-<!--<ins class="adsbygoogle"
+<ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-6403991612334960"
      data-ad-slot="6701528663"
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script>--><div class="hidden-xs hidden-sm"><br></div>
+</script><div class="hidden-xs hidden-sm"><br></div>
 
 <div class="hidden-xs hidden-sm"><br>
 <form method="get" action="">
@@ -283,12 +283,12 @@ echo "</ul></center>";
 <div class="col-lg-12 col-md-12">
 <div class="row">
 <div class="col-lg-6 col-md-6"><div class="row" style="padding:2px;" id="t100"><a href="<?=base_url()?>eyenews/search/Liga" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Liga</a></div></div>
-<div class="col-lg-6 col-md-6"><div class="row" style="padding:2px;" id="t100"><a href="<?=base_url()?>eyenews/search/Berita" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Peristiwa</a></div></div>
+<div class="col-lg-6 col-md-6"><div class="row" style="padding:2px;" id="t100"><a href="<?=base_url()?>eyenews/search/Berita" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Berita</a></div></div>
 </div>
 </div><br><br>
 <div class="col-lg-12 col-md-12">
 <div class="row">
-<div class="col-lg-6 col-md-6"><div class="row" style="padding:2px;" id="t100"><a href="<?=base_url()?>eyenews/search/Usia Muda" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Pembinaan</a></div></div>
+<div class="col-lg-6 col-md-6"><div class="row" style="padding:2px;" id="t100"><a href="<?=base_url()?>eyenews/search/Usia Muda" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Usia</a></div></div>
 <div class="col-lg-6 col-md-6"><div class="row" style="padding:2px;" id="t100"><a href="<?=base_url()?>eyenews/search/Soccer Sains" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Soccer Sains</a></div></div>
 </div>
 </div><br><br>
@@ -352,8 +352,8 @@ print '
 </div>
 <div class="hidden-md hidden-lg"><br>
 <ul class="nav nav-tabs">
-    <li class="active mytab1"><a data-toggle="tab" hreff="#mn1" class="mytab" totab="mytab1" style="padding-left:2px;">Berita Rekomendasi</a></li>
-    <li class="mytab1"><a data-toggle="tab" hreff="#mn2" class="mytab" totab="mytab1" style="padding-right:2px;">Berita Terpopuler</a></li>
+    <li class="active mytab1"><a data-toggle="tab" hreff="#mn1" class="mytab" totab="mytab1">Berita Rekomendasi</a></li>
+    <li class="mytab1"><a data-toggle="tab" hreff="#mn2" class="mytab" totab="mytab1">Berita Terpopuler</a></li>
 </ul>
   <div class="tab-content">
     <div id="mn1" class="tab-pane fade in active mytab1"><br>

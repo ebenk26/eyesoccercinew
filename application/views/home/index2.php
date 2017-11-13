@@ -30,371 +30,672 @@ if($_SESSION["device_detail"]=="Dekstop"){
 ?>
 <div class="desktop-view">
 <!--<img src="<?=base_url()?>img/h1.png" class="img img-responsive">-->
-
-<div class="container"><br>
-<div id="myCarousel1" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="<?=base_url()?>img/banner-top.jpg" alt="Banner Top Eyesoccer" style="width:100%;height:280px;">
-      </div>
+<div class="navbar-wrapper" >
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-top">
+            <div class="container col-lg-12 col-xs-12 hidden-sm hidden-xs">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <!--<a class="navbar-brand" href="#">Logo</a>-->
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="<?=base_url()?>" style="font-family:Roboto-Black;">Home</a></li>
+                        <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle " style="font-family:Roboto-Black;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EyeProfile <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class=" dropdown">
+                                    <li><a href="<?=base_url()?>player" style="font-family:Roboto-Black;">Player</a></li>
+                                </li>
+                                <li><a href="<?=base_url()?>club" style="font-family:Roboto-Black;">Club</a></li>
+								<li><a href="<?=base_url()?>official" style="font-family:Roboto-Black;">Official</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="<?=base_url()?>eyetube" style="font-family:Roboto-Black;">EyeTube</a></li>
+						<li><a href="<?=base_url()?>eyenews"style="font-family:Roboto-Black;">EyeNews</a></li>
+						<li><a href="<?=base_url()?>eyeme" style="font-family:Roboto-Black;">EyeMe</a></li>
+						<li><a href="<?=base_url()?>eyevent" style="font-family:Roboto-Black;">EyeVent</a></li>
+						<li><a href="<?=base_url()?>eyetransfer" style="font-family:Roboto-Black;">EyeTransfer</a></li>
+						<li><a href="<?=base_url()?>eyetiket" style="font-family:Roboto-Black;">EyeTiket</a></li>
+						<li><a href="<?=base_url()?>eyemarket" style="font-family:Roboto-Black;">EyeMarket</a></li>
+						<li><a href="<?=base_url()?>eyewallet" style="font-family:Roboto-Black;">EyeWallet</a></li>
+                        <!--<li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Managers <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View Managers</a></li>
+                                <li><a href="#">Add New</a></li>
+                            </ul>
+                        </li>
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Staff <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">View Staff</a></li>
+                                <li><a href="#">Add New</a></li>
+                                <li><a href="#">Bulk Upload</a></li>
+                            </ul>
+                        </li>
+                        <li class=" down"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HR <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Change Time Entry</a></li>
+                                <li><a href="#">Report</a></li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                    <!--<ul class="nav navbar-nav pull-right">
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Change Password</a></li>
+                                <li><a href="#">My Profile</a></li>
+                            </ul>
+                        </li>
+                        <li class=""><a href="#">Logout</a></li>
+                    </ul>-->
+				<div class="col-lg-3 col-md-3" style="margin:auto; float:right; padding-top:10px;">
+				<form method="get" action="">
+				  <div class="input-group">
+					<input type="text" class="form-control" placeholder="Search">
+					<div class="input-group-btn">
+					  <button class="btn btn-default" type="submit">
+						<i class="glyphicon glyphicon-search"></i>
+					  </button>
+					</div>
+				  </div>
+				</form>
+				</div>					
+                </div>
+            </div>
+        </nav>
     </div>
-</div><br>
-<marquee id="run-text-100" style="padding-top:10px !important;padding-bottom:0px;" loop="true" SCROLLDELAY=50><?=$runtext["description"]?></marquee><br>
+</div>
 
+<div class="container">
+
+<div class="row">	
+			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="padding: 0px;">
+				<div class="owl-nav">
+					<div class="jadwalPrev">
+						<img src="<?php echo base_url(); ?>assets/new_assets/btn-chevron-left.png" class="arrow-box-jadwal">
+					</div>
+		        </div>
+			</div>
+			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+				<div class="row" style="cursor: move;">
+					<div id="jadwal-slider" class="owl-carousel">
+					<?php
+					foreach ($jadwal as $value)
+					{	$date =  new DateTime($value['jadwal_pertandingan']);
+						// var_dump(date_format($date,"Y/m/d"));exit();
+					?>
+						<div class="col-lg-2 col-md-2">
+							<div class="item-jadwal">
+								<div class="lingkup-box col-lg-2">
+									<div class="box-jadwal">
+										<img src="<?php echo base_url(); ?>assets/new_assets/box-jadwal-pertandingan.png" alt="">
+										<div class="isi-box-jadwal">
+											<div class="time-box-jadwal">
+												<div style="float: left; font-size:12px;">
+													<span>
+														<?php echo date_format($date,"d M H:i"); ?>
+													</span>
+												</div>
+												<div style="float: right; font-size:12px;">
+													<span style="color: red;">
+														<?php echo $value['live_pertandingan']; ?>LIVE SCTV
+													</span>
+												</div>
+											</div>
+											<div class="club-box-jadwal" style="font-size:14px;">
+												<span><?php echo ($value['club_a']); ?></span>
+												<div class="score-box-jadwal">
+													<span>
+														<?php base_url()."/systems/club_logo/".$value['logo_a']; ?>
+													</span>
+												</div>
+											</div>
+											<div class="club-box-jadwal" style="font-size:14px;">
+												<span>
+													<?php echo ($value['club_b']); ?>
+												</span>
+												<div class="score-box-jadwal">
+													<span>
+														<?php base_url()."/systems/club_logo/".$value['logo_b']; ?> 
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+<?php		
+					}
+?>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="padding: 0px;">
+				<div class="owl-nav">
+					<div class="jadwalNext">
+						<img src="<?php echo base_url(); ?>assets/new_assets/btn-chevron-right.png" class="arrow-box-jadwal" style="float: right;">
+					</div>
+		        </div>
+			</div>
+		</div>
+<br><br>
+<!-- konten eyeProfile -->
+		<div class="row">
+			<div class="line-eyeprofile">
+				<img src="<?php echo base_url(); ?>assets/new_assets/ic_eyeprofile.png">
+				<span style="font-family: Montserratbold; color:#F08A38;font-size: 20px;">
+					eyeProfile 
+				</span>
+				<img src="<?php echo base_url(); ?>assets/new_assets/line-eyeprofile.png">
+			</div>
+			<div style="text-align: right;color:#F08A38;">
+				<a href="<?php echo base_url(); ?>eyeprofile/klub">
+					Klub Lainnya
+					<img src="<?php echo base_url(); ?>assets/new_assets/chevron-right-orange.png">
+				</a>
+			</div>
+			<div class="owl-carousel owl-theme" id="club-slider" style="cursor: move;">
+<?php 
+			foreach ($profile_club as $club)
+			{
+?>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-2" style="padding: 0px;">
+					<!--<img src="<?php //echo base_url(); ?>assets/new_assets/box-club white.png" style="width: auto;">-->
+					<img src="<?php echo base_url(); ?>systems/club_logo/<?= $club['logo_club']; ?>" class="img img-responsive">				
+					<div>
+						<div style="position: absolute; top: 15%; left: 130%; width: 190px; ">
+							<div style="font-family: Montserratbold;">
+								<a href="<?php echo base_url(); ?>eyeprofile/klub_detail/<?= $club['club_id'];?>">
+									<h4 style="font-size:9px;"><?= $club['nama_club']; ?></h4>
+								</a>
+							</div>
+							<div style="color: #615d5d; font-size:9px;">
+								<span>LIGA 1 INDONESIA</span>
+							</div>
+							<div class="keterangan-club">
+								<table border="0">
+									<tr>
+										<td style="width: 60px;">Squad</td>
+										<td>: </td>
+										<td><?= $club['squad']; ?></td>
+									</tr>
+									<tr>
+										<td>Manajer</td>
+										<td>:</td>
+										<td><?= $club['nama_manager']; ?></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+<?php		
+			}
+?>
+			</div>
+		</div>		
+		<div class="row">
+			<span style="color:#F08A38;">PEMAIN PROFESIONAL</span>
+			<div style="float: right;">
+				<img src="<?php echo base_url(); ?>assets/new_assets/chevron-left-rounded-deactive.png" id="haha">
+				<img src="<?php echo base_url(); ?>assets/new_assets/chevron-right-rounded-active.png">
+			</div>
+			<br>
+		</div>
+		<br>
+		<div class="row">
+<?php 
+		foreach ($profile_player as $player)
+		{
+			// $tgl = date_create($player['tgl_lahir']);
+			$bulan 	= array(
+			                '01' => 'Jan',
+			                '02' => 'Feb',
+			                '03' => 'Mar',
+			                '04' => 'Apr',
+			                '05' => 'Mei',
+			                '06' => 'Juni',
+			                '07' => 'Juli',
+			                '08' => 'Agust',
+			                '09' => 'Sept',
+			                '10' => 'Okt',
+			                '11' => 'Nov',
+			                '12' => 'Des',
+        			);
+?>
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+				<img src="<?php echo base_url(); ?>assets/new_assets/box-pemain banyak dilihat.png">
+				<div style="position: absolute; top: 0%;">
+					<img src="<?php echo base_url(); ?>systems/player_storage/<?= $player['foto']; ?>" style="width:114px; height: 114px;">
+					<!-- <img src="<?php echo base_url(); ?>assets/new_assets/box-foto pemain banyak dilihat.png" style="position: absolute; top: 0%;"> -->
+					<div class="box-player-name" style="position: absolute; top: 0%; left: 120%; width: 212%;">
+						<h4 style="color:#F08A38;"><?= $player['nama']; ?></h4>
+					
+						<div class="box-ket-player">
+							<table border="0">
+								<tr>
+									<td style="width: 100px;">Posisi</td>
+									<td style="width: 5px;">:</td>
+									<td><?= $player['posisi']; ?></td>
+								</tr>
+								<tr>
+									<td>Klub</td>
+									<td>:</td>
+									<td><?= $player['klub']; ?></td>
+								</tr>
+								<tr>
+									<td>Tanggal Lahir</td>
+									<td>:</td>
+									<td><?= $player['tanggal']." ".$bulan[$player['bulan']]." ".$player['tahun']; ?></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+<?php
+		}
+?>
+		</div>
+		<br>
+
+
+<div class="line-eyeprofile">
+<img src="<?php echo base_url(); ?>assets/new_assets/ic_eyetube.png">
+<span style="font-family: Montserratbold; color:#347FC0;font-size: 20px;">eyeTube </span>
+<img src="<?php echo base_url(); ?>assets/new_assets/line-eyetube.png" style="width: 1020px;">
+</div>
+<br>			
 <div class="col-lg-7 col-md-7" style="padding-top:0px;padding-bottom:0px;padding-right:15px;padding-left:0px;">
 <div class="col-lg-12 col-md-12">
+
 <div class="row">
 <?php
-$cmd1=$this->db->query("select * from tbl_eyenews where publish_on<='".date("Y-m-d H:i:s")."' order by eyenews_id desc LIMIT 7");
+$cmd1=$this->db->query("select * from tbl_eyetube where publish_on<='".date("Y-m-d H:i:s")."' order by eyetube_id desc LIMIT 7");
 $cmd2=$cmd1->result_array();
 ?>
-<a href="<?=base_url()?>eyenews" id="a100"><h4 id="t100" style="padding-top:20px;"><!--<img src="<?=base_url()?>img/icon_eyenews.png" class="img img-responsive" style="width:30px;height:30px;display:inline;">--><i class="fa fa-newspaper-o" style="color:#d83636"></i> EyeNews</h4></a>
+
 <div id="myCarousel2" class="carousel slide" data-ride="carousel" data-interval="false">
   <div class="carousel-inner">
     <?php
     $data=$cmd2[0];
     ?>
-    <a href="<?=base_url()?>eyenews/detail/<?=$data["eyenews_id"]?>">
-      <div style="cursor:pointer" class="item active" onclick='window.location.assign("<?=base_url()?>eyenews/detail/<?=$data["eyenews_id"]?>")'>
+
+      <div style="cursor:pointer" class="item active" onclick='window.location.assign("<?=base_url()?>eyetube/detail/<?=$data["eyetube_id"]?>")'>
       <div class="set100">
-  
-        <img src="<?=base_url().'systems/eyenews_storage/'.$data['pic'];?>" alt="Norway" style="width:100%;">
-        <div id="set-top-left-100">Headline</div>     
-        <div id="setcenter100"><?=$data["title"]?></div>
+<video width="640" height="360" poster="<?=base_url()?>systems/eyetube_storage/<?php print $data['thumb']; ?>" controls controlsList="nodownload">
+<source src="<?=base_url()?>systems/eyetube_storage/<?php print $data['video']; ?>" type="video/mp4"/></video> 
+<small class="hidden-lg hidden-md" style="color: #cccccc;"> <?=$data['tube_view']?> viewers | <a class="emoticon" type_emot="like" style="color: #cccccc;"> <span class="replace_like"><?=$data['tube_like']?> Suka</a></small>
+<small class="hidden-xs hidden-sm" style="color: #cccccc;"> <?=$data['tube_view']?> viewers | <a class="emoticon" type_emot="like" style="color: #cccccc;"><span class="replace_like"><?=$data['tube_like']?> Suka</span></a></small>
+<a href="<?=base_url()?>eyetube/detail/<?=$data["eyetube_id"]?>"><h5 id="p100" style="margin-bottom:1px;"><?=$data["title"]?></h5></a>
+		<!--<small id="t104"><?=date("d M Y",strtotime($data["createon"]))?></small>-->
+		<p id="p102"><?=substr($data["description"],0,200)?> . . . <a href="<?=base_url()?>eyetube/detail/<?=$data["eyetube_id"]?>" id="t104">selengkapnya</a>
+		</p>
       </div>        
       </div>
     </a>
   </div>
-</div> 
+</div><br> 
 </div>
 </div>
 </div>
 <div class="col-lg-5 col-md-5" style="padding:0;">
-<div style="padding-top:70px;"></div>
+<div style="padding-top:0px;"></div>
   <?php
     $data=$cmd2[1];
     ?>
 <div class="col-lg-12 col-md-12">
- <a href="<?=base_url()?>eyenews/detail/<?=$data["eyenews_id"]?>">
-<div class="set100 row" style="cursor:pointer" onclick='window.location.assign("<?=base_url()?>eyenews/detail/<?=$data["eyenews_id"]?>")'>
-
-  <img src="<?=base_url().'systems/eyenews_storage/'.$data['pic'];?>" alt="Norway" style="width:100%;max-height:218px;">    
-  <div id="setcenter101" class="hidden-sm"><?=$data["title"]?></div>
+ <a href="<?=base_url()?>eyetube/detail/<?=$data["eyetube_id"]?>">
+<div class="set100 row" style="cursor:pointer" onclick='window.location.assign("<?=base_url()?>eyetube/detail/<?=$data["eyetube_id"]?>")'>
+  <img src="<?=base_url().'systems/eyetube_storage/'.$data['thumb1'];?>" alt="Norway" style="width:100%;max-height:218px;">    
+<div id="v105"><img src="<?=base_url()?>img/button_icon.png" class="img img-responsive" style="width:45px;height:45px;"></div></a>  
+  <!--<div  class="hidden-sm"><?=$data["title"]?></div>-->
 </div> 
 </a>
 </div>
-<div class="col-lg-12 col-md-12" style="padding-top:14px;padding-left:0px;padding-right:0px;">
-<div class="col-lg-6 col-md-6" style="padding-left:0px;padding-right:7px;padding-top:0px">
- <?php
+</div>
+<br><br>
+<div class="col-lg-5 col-md-5" style="padding:0;">
+<div style="padding-top:20px;"></div>
+  <?php
     $data=$cmd2[2];
     ?>
-     <a href="<?=base_url()?>eyenews/detail/<?=$data["eyenews_id"]?>">
-<div class="set100" style="cursor:pointer" onclick='window.location.assign("<?=base_url()?>eyenews/detail/<?=$data["eyenews_id"]?>")'>
-
-  <img src="<?=base_url().'systems/eyenews_storage/'.$data['pic'];?>" alt="Norway" style="width:100%;">     
-  <div id="setcenter102"><?=$data["title"]?></div>
-</div>  
-</a>
-</div>
-<div class="col-lg-6 col-md-6" style="padding-left:7px;padding-right:0px;padding-top:0px">
-<?php
-     $data=$cmd2[3];
-    ?>
-     <a href="<?=base_url()?>eyenews/detail/<?=$data["eyenews_id"]?>">
-<div class="set100" style="cursor:pointer" onclick='window.location.assign("<?=base_url()?>eyenews/detail/<?=$data["eyenews_id"]?>")'>
-
-  <img src="<?=base_url().'systems/eyenews_storage/'.$data['thumb1'];?>" alt="Norway" style="width:100%;">    
-  <div id="setcenter103"><?=$data["title"]?></div>
-</div>  
-</a>
-</div>
-</div>
-</div>
-</div>
-
-<div class="container">
-<div class="row">
-<div class="col-lg-4 col-md-4">
-<a href="<?=base_url()?>eyenews?search=rekomendasi"><h3 id="t102">BERITA REKOMENDASI</h3></a>
-<hr style="border-bottom:solid #d83636 2px;margin-top:5px;"></hr>
-<?php
-$cmd1=$this->db->query("select * from tbl_eyenews where publish_on<='".date("Y-m-d H:i:s")."' AND category_news='2' and eyenews_id order by eyenews_id desc LIMIT 3");
-?>
-<?php
-foreach($cmd1->result_array() as $data){
-print '<a href="'.base_url().'/eyenews/detail/'.$data["eyenews_id"].'" id="a100"><div class="media" style="cursor:pointer" onclick=\'window.location.assign("'.base_url().'/eyenews/detail/'.$data["eyenews_id"].'")\'>
-  <div class="media-left">
-    <img src="systems/eyenews_storage/'.$data['thumb1'].'" class="media-object" style="width:130px;height:90px;"><br>
-  </div>
-  <div class="media-body">
-    <h6 class="media-heading" id="t103">'.date("d M Y",strtotime($data["publish_on"])).'</h6>
-    <p id="p101">'.$data["title"].'</p>
-  </div>
-</div></a>'; 
-}
-print "<div class='form-group text-right' style='padding-top:15px;'><a href='".base_url()."eyenews' class='btn btn-danger btn-sm'>selengkapnya</a></div>";
-?> 
-</div>
-<div class="col-lg-4 col-md-4">
-<?php
-$cmd0=$this->db->query("select * from tbl_template_eyenews where position='tengah'");
-$data0=$cmd0->row_array();
-?>
-<a href="<?=base_url()?>eyenews/search/<?=$data0['category_template']?>"><h3 id="t102"><?=strtoupper($data0['category_template'])?></h3></a>
-<hr style="border-bottom:solid #d83636 2px;margin-top:5px;"></hr>
-<?php
-$cmd1=$this->db->query("select * from tbl_eyenews where publish_on<='".date("Y-m-d H:i:s")."' and news_type='".$data0['category_template']."' and eyenews_id order by eyenews_id desc LIMIT 3");
-$data=$cmd1->row_array();
-?>
-<?php
-foreach($cmd1->result_array() as $data){
-print '<a href="'.base_url().'/eyenews/detail/'.$data["eyenews_id"].'" id="a100"><div class="media" style="cursor:pointer" onclick=\'window.location.assign("'.base_url().'/eyenews/detail/'.$data["eyenews_id"].'")\'>
-  <div class="media-left">
-    <img src="systems/eyenews_storage/'.$data['thumb1'].'" class="media-object" style="width:130px;height:90px;"><br>
-  </div>
-  <div class="media-body">
-    <h6 class="media-heading" id="t103">'.date("d M Y",strtotime($data["publish_on"])).'</h6>
-    <p id="p101">'.$data["title"].'</p>
-  </div>
-</div></a>'; 
-}
-print "<div class='form-group text-right' style='padding-top:15px;'><a href='".base_url()."eyenews' class='btn btn-danger btn-sm'>selengkapnya</a></div>";
-?>  
-</div>
-<?php
-$cmd2=$this->db->query("select * from tbl_template_eyenews where position='kanan'");
-$data2=$cmd2->row_array();
-?>
-<div class="col-lg-4 col-md-4">
-<a href="<?=base_url()?>eyenews/search/<?=$data2['category_template']?>"><h3 id="t102"><?=strtoupper($data2['category_template'])?></h3></a>
-<hr style="border-bottom:solid #d83636 2px;margin-top:5px;"></hr>
-<?php
-$cmd3=$this->db->query("select * from tbl_eyenews where publish_on<='".date("Y-m-d H:i:s")."' and news_type='".$data2['category_template']."' and eyenews_id order by eyenews_id desc LIMIT 3");
-?>
-<?php
-foreach($cmd3->result_array() as $data3){
-print '<a href="'.base_url().'/eyenews/detail/'.$data3["eyenews_id"].'" id="a100"><div class="media"  style="cursor:pointer" onclick=\'window.location.assign("'.base_url().'/eyenews/detail/'.$data3["eyenews_id"].'")\'>
-  <div class="media-left">
-    <img src="systems/eyenews_storage/'.$data3['thumb1'].'" class="media-object" style="width:130px;height:90px;"><br>
-  </div>
-  <div class="media-body">
-    <h6 class="media-heading" id="t103">'.date("d M Y",strtotime($data3["publish_on"])).'</h6>
-    <p id="p101">'.$data3["title"].'</p>
-  </div>
-</div></a>'; 
-}
-print "<div class='form-group text-right' style='padding-top:15px;'><a href='".base_url()."eyenews' class='btn btn-danger btn-sm'>selengkapnya</a></div>";
-?>    
-</div>
-</div>
-
-<a href="<?=base_url()?>eyetube" id="a100"><h4 id="t100" style="padding-top:20px;"><i class="fa fa-play-circle-o" style="color:#d83636"></i> EyeTube</h4></a>
-<div class="col-lg-6 col-md-6" style="padding-left:0px;">
-<?php
-$cmd1=$this->db->query("select * from tbl_eyetube where publish_on<='".date("Y-m-d H:i:s")."'  order by eyetube_id desc LIMIT 1");
-$data=$cmd1->row_array();
-?>
-<a href="<?=base_url().'eyetube/detail/'.$data['eyetube_id'];?>" id="a100"><img src="<?=base_url().'systems/eyetube_storage/'.$data['thumb1'];?>" width="100%" class="img img-responsive"></a>
-<h5 id="p100" style="margin-bottom:1px;"><?=$data["title"]?></h5>
-<small id="t104"><?=date("d M Y",strtotime($data["createon"]))?></small>
-<p id="p102"><?=substr($data["description"],0,100)?> . . . <a href="<?=base_url()?>eyetube/detail/<?=$data["eyetube_id"]?>">selengkapnya</a>
-</p>
-</div>
-<div class="col-lg-6 col-md-6">
-<ul class="nav nav-tabs nav-justified">
-<li class="active"><a data-toggle="tab" href="#mn100" class="mytab">Soccer Sains</a></li>
-  <li><a data-toggle="tab" href="#mn101" class="mytab">Video Kamu</a></li>  
-  <li ><a data-toggle="tab" href="#mn102" class="mytab">Eyesoccer Stars</a></li>
-</ul> 
-<div class="tab-content">
-  <div id="mn100" class="tab-pane fade in active"><br>
-    <?php
-$cmd1=$this->db->query("select * from tbl_eyetube where title like'%soccer science%' order by eyetube_id desc LIMIT 4");
-?>
-<?php
-foreach($cmd1->result_array() as $data){
-  print '<a href="'.base_url().'/eyetube/detail/'.$data["eyetube_id"].'" id="a100"><div class="media" style="margin-top:8px;cursor:pointer" onclick=\'window.location.assign("'.base_url().'/eyetube/detail/'.$data["eyetube_id"].'")\'>
-    <div class="media-left">
-    <div id="set100">
-      <img src="systems/eyetube_storage/'.$data['thumb1'].'" class="media-object" style="width:130px;height:90px;">
-    <div id="setcenter105"><img src="'.base_url().'img/button_icon.png" class="img img-responsive" style="width:35px;height:35px;"></div>
-    </div>
-    
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading" id="t103">'.date("d M Y",strtotime($data["createon"])).'</h4>
-      <p id="p101">'.$data["title"].'</p>
-      <i class="fa fa-eye" style="color:#000"> '.$data['tube_view'].'</i> - <i class="fa fa-heart" style="color:#000"> '.$data['tube_like'].'</i>             
-    </div>
-  </div></a>'; 
-  }
-  print "<div class='form-group text-right' style='padding-top:15px;'><a href='".base_url()."eyetube' class='btn btn-danger btn-sm'>selengkapnya</a></div>";
-  ?>
-  </div>
-  <div id="mn101" class="tab-pane fade"><br> 
-  <?php
-$cmd1=$this->db->query("select * from tbl_eyetube where title like'%video kamu%' order by eyetube_id desc LIMIT 4");
-?>
-<?php
-foreach($cmd1->result_array() as $data){
-  print '<a href="'.base_url().'/eyetube/detail/'.$data["eyetube_id"].'" id="a100"><div class="media" style="margin-top:8px;cursor:pointer" onclick=\'window.location.assign("'.base_url().'/eyetube/detail/'.$data["eyetube_id"].'")\'>
-    <div class="media-left">
-    <div id="set100">
-    <img src="systems/eyetube_storage/'.$data['thumb1'].'" class="media-object" style="width:130px;height:90px;">
-    <div id="setcenter105"><img src="'.base_url().'img/button_icon.png" class="img img-responsive" style="width:35px;height:35px;"></div>
-    </div>
-
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading" id="t103">'.date("d M Y",strtotime($data["createon"])).'</h4>
-      <p id="p101">'.$data["title"].'</p>
-      <i class="fa fa-eye" style="color:#000"> '.$data['tube_view'].'</i> - <i class="fa fa-heart" style="color:#000"> '.$data['tube_like'].'</i>         
-    </div>
-  </div></a>'; 
-  }
-  print "<div class='form-group text-right' style='padding-top:15px;'><a href='".base_url()."eyetube' class='btn btn-danger btn-sm'>selengkapnya</a></div>";
-  ?>
-  </div>
-  <div id="mn102" class="tab-pane fade"><br>
-  <?php
-$cmd1=$this->db->query("select * from tbl_eyetube where title like'%eyesoccer star%' order by eyetube_id desc LIMIT 4");
-?>
-<?php
-foreach($cmd1->result_array() as $data){
-  print '<a href="'.base_url().'/eyetube/detail/'.$data["eyetube_id"].'" id="a100"><div class="media" style="margin-top:8px;cursor:pointer" onclick=\'window.location.assign("'.base_url().'/eyetube/detail/'.$data["eyetube_id"].'")\'>
-    <div class="media-left">
-    <div id="set100">
-      <img src="systems/eyetube_storage/'.$data['thumb1'].'" class="media-object" style="width:130px;height:90px;">
-    <div id="setcenter105"><img src="'.base_url().'img/button_icon.png" class="img img-responsive" style="width:35px;height:35px;"></div>
-    </div>
-    
-    </div>
-    <div class="media-body">
-      <h4 class="media-heading" id="t103">'.date("d M Y",strtotime($data["createon"])).'</h4>
-      <p id="p101">'.$data["title"].'</p>
-      <i class="fa fa-eye" style="color:#000"> '.$data['tube_view'].'</i> - <i class="fa fa-heart" style="color:#000"> '.$data['tube_like'].'</i>             
-    </div>
-  </div></a>'; 
-  }
-  print "<div class='form-group text-right' style='padding-top:15px;'><a href='".base_url()."eyetube' class='btn btn-danger btn-sm'>selengkapnya</a></div>";
-  ?> 
-  </div>
-</div>
-</div>
-
-<div class="col-lg-12 col-md-12" style="padding-left:0px;"></div>
-<div class="col-lg-6 col-md-6" style="padding-left:0px;">
-<a href="<?=base_url()?>eyevent" id="a100"><h4 id="t100"><i class="fa fa-calendar" style="color:#d83636"></i> EyeVent</h4></a>
-  <ul class="nav nav-tabs nav-justified">
-  <li class="active"><a data-toggle="tab" href="#mn104" class="mytab">Pertandingan Pekan Ini</a></li>
-  <li><a data-toggle="tab" href="#mn105" class="mytab">Jadwal Live TV</a></li>
-</ul> 
-<div class="tab-content">
-  <div id="mn104" class="tab-pane fade in active"><br>
-    <?php
-    $i=0;
-    $judul="";
-    $list_jadwal=array(array('Liga 1','LIGA 1 INDONESIA'),array('Liga Indonesia 2','LIGA 2 INDONESIA'),array('English Premier League','LIGA INGGRIS'),array('Spanish','LIGA SPANYOL'));
-    $jadwal=$this->db->query("SELECT a.*,c.club_id as club_id_a,d.club_id as club_id_b,c.logo as logo_a,d.logo as logo_b,c.name as club_a,d.name as club_b FROM tbl_jadwal_event a LEFT JOIN tbl_event b ON b.id_event=a.id_event INNER JOIN tbl_club c ON c.club_id=a.tim_a INNER JOIN tbl_club d ON d.club_id=a.tim_b where b.title !='' AND a.jadwal_pertandingan>='".date("Y-m-d H:i:s")."' order by jadwal_pertandingan ASC LIMIT 5");
-
-    $judul=$list_jadwal[$i][1];
-    while($jadwal->num_rows()<1)
-    { 
-      $i++;
-      $jadwal=$this->db->query("SELECT a.*,c.club_id as club_id_a,d.club_id as club_id_b,c.logo as logo_a,d.logo as logo_b,c.name as club_a,d.name as club_b FROM tbl_jadwal_event a LEFT JOIN tbl_event b ON b.id_event=a.id_event INNER JOIN tbl_club c ON c.club_id=a.tim_a INNER JOIN tbl_club d ON d.club_id=a.tim_b where b.title like '%".$list_jadwal[$i][0]."%' AND a.jadwal_pertandingan>='".date("Y-m-d H:i:s")."' order by jadwal_pertandingan DESC LIMIT 5");
-      $judul=$list_jadwal[$i][1];
-      
-    }
-    //print_r($list_jadwal);
-    ?>
-    <!--<div class="text-center" style="background:#2C3E50;color:#fff;padding:5px;"><?=$judul?></div><br>-->
-    <?php
-
-    //$get_last=mysqli_fetch_array(mysqli_query("SELECT * FROM tbl_event WHERE title like='%Liga 1%' ORDER BY tbl_e"));
-
-    $jdpertandingan="";
-    foreach($jadwal->result_array() as $data){
-
-    print '
-    <div class="text-center">';
-      $jdnow=date("d M Y",strtotime($data["jadwal_pertandingan"]));
-    if($jdpertandingan==$jdnow){
-      
-    }
-    else{
-      echo '<small><b>'.$jdnow.'</b></small><br>';
-    }
-
-
-    //echo '<small>Gelora Bung Karno, Jakarta</small>';
-    echo '<hr style="margin-bottom:5px;margin-top:0px;"></hr>
-    <div class="col-lg-12 col-md-12">
-    <div class="col-lg-5 col-md-5 text-right">'.$data["club_a"].' <img src="'.base_url().'/systems/club_logo/'.$data["logo_a"].'" style="width:35px;height:35px;"></div>
-    <div class="col-lg-2 col-md-2" style="padding-top:5px;;"><div style="background:#FAF731;color:#3d3d3d;">'.date("H:i",strtotime($data["jadwal_pertandingan"])).'</div></div>
-    <div class="col-lg-5 col-md-5 text-left"><img src="'.base_url().'/systems/club_logo/'.$data["logo_b"].'" style="width:30px;height:30px;"> '.$data["club_b"].' </div>
-    </div><br>
-    <hr style="margin-top:16px;"></hr>
-    </div>';
-
-    $jdpertandingan=$jdnow;
-    }
-
-    print "<div class='form-group text-right' style='padding-top:15px;'><a href='".base_url()."eyevent' class='btn btn-danger btn-sm btn-block'>selengkapnya</a></div>";
-    ?>
-  </div>
-  <div id="mn105" class="tab-pane fade">
-<?php 
-$jadwal=$this->db->query("SELECT a.*,c.club_id as club_id_a,d.club_id as club_id_b,c.logo as logo_a,d.logo as logo_b,c.name as club_a,d.name as club_b FROM tbl_jadwal_event a LEFT JOIN tbl_event b ON b.id_event=a.id_event INNER JOIN tbl_club c ON c.club_id=a.tim_a INNER JOIN tbl_club d ON d.club_id=a.tim_b WHERE a.live_pertandingan!='' AND jadwal_pertandingan>='".date("Y-m-d")."' order by jadwal_pertandingan ASC LIMIT 5");
-foreach($jadwal->result_array() as $data){
-
-print'
-
-<h5 id="t102">'.$data["club_a"].' VS '.$data["club_b"].'</h5>
-<small id="t103">'.date("d M Y - H:i:s",strtotime($data["jadwal_pertandingan"])).' WIB</small><div class="pull-right" style="background:#E7251C;padding-top:3px;padding-bottom:3px;padding-left:9px;padding-right:9px;width:auto;;color:#fff;"><i>LIVE di '.$data["live_pertandingan"].'</i></div>
-<hr style="margin-top:5px;"></hr>';
-}
-print "<div class='form-group text-right' style='padding-top:15px;'><a href='".base_url()."eyevent/eventlainnya' class='btn btn-danger btn-sm'>selengkapnya</a></div>";
-?>
-</div>
-  </div>
-</div>
-<div class="col-lg-6 col-md-6">
-<a href="<?=base_url()?>eyevent/eventlainnya" id="a100"><h4 id="t100" style="padding-top:14px; margin:0px;"><i class="fa fa-calendar-o" style="color:#d83636"></i> Event Lainnya</h4></a>
-<hr style="border-bottom:solid #d83636 2px;margin-top:5px;"></hr>
-<?php
-$cmd1=$this->db->query("select * from tbl_event where publish_on<='".date("Y-m-d H:i:s")."' order by publish_on desc  limit 5");
-foreach($cmd1->result_array() as $row1){
-$id_event=$row1['id_event']; 
-  if(strstr($row1["thumb1"], "."))
-  {
-    $row1['pic']=$row1['thumb1'];
-  }
-print '
-
-  <div class="media">
+<div class="col-lg-12 col-md-12">
+ <a href="<?=base_url()?>eyetube/detail/<?=$data["eyetube_id"]?>">
+<div class="set100 row" style="cursor:pointer" onclick='window.location.assign("<?=base_url()?>eyetube/detail/<?=$data["eyetube_id"]?>")'>
+  <img src="<?=base_url().'systems/eyetube_storage/'.$data['thumb1'];?>" alt="Norway" style="width:100%;max-height:218px;">  
+<div id="v105"><img src="<?=base_url()?>img/button_icon.png" class="img img-responsive" style="width:45px;height:45px;"></div></a>  
   
-    <div class="media-left ">
-      <a href="'.base_url().'eyevent/detail/'.$id_event.'"><img src="'.base_url().'systems/eyevent_storage/'.$row1['pic'].'" class="media-object " id="img4" ></a>
-    </div>
-    <div class="media-body ">
-      <a href="'.base_url().'eyevent/detail/'.$id_event.'" id="a4" class=""><p class="media-heading">'.$row1['title'].'</p>
-      <small id="set6"><i class="fa fa-clock-o"></i> '.$row1['publish_on'].'</small></a>
-    </div>
-  </div>
-';
-  
-}
-?>    
-</div>
-</div>
-
-</div>
-
 </div> 
+</a>
+</div>
+</div>
+
+<div class="col-lg-12 col-md-12">
+<div class="row">
+<ul class="nav nav-tabs">
+<li class="active"><a data-toggle="tab" href="#mn900" class="border" id="tb101">EYESOCCER STARS</a></li>
+<li><a data-toggle="tab" href="#mn901" class="border" id="tb101">VIDOE POPULAR</a></li>  
+<li><a data-toggle="tab" href="#mn902" class="border" id="tb101">VIDEO KAMU</a></li>
+</ul>
+<div class="tab-content"><br>
+<div class="col-xs-12 col-sm-12 pull-right" style="line-height: 38px;text-align: right;"><a >
+<a style="color:#347fc0;font-weight:bold" href="<?php echo base_url(); ?>eyetube">Video Lainnya <img src="<?php echo base_url(); ?>assets/new_assets/chevron-right-blue.png"></a></div>
+	<div id="mn900" class="tab-pane fade in active">
+	
+		<?php
+		$result=$this->db->query("select * from tbl_eyetube where title like'%eyesoccer stars%' and active='1' order by eyetube_id desc limit 4");
+		foreach($result->result_array() as $data)
+		{
+		$eyetube_id=$data['eyetube_id'];
+		echo '
+		<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
+		<div class="row">
+		  <div class="media">
+		    <div class="media-left">	      
+			  	<div id="set100">
+				<a href="'.base_url().'eyetube/detail/'.$eyetube_id.'" >
+				  <img src="'.base_url().'systems/eyetube_storage/'.$data['thumb1'].'" class="img-polaroid thumbnail2" alt="Lights" style="width:100% !important;margin: 0 auto;">
+				<div id="v106"><img src="'.base_url().'img/button_icon.png" class="img img-responsive" style="width:45px;height:45px;"></div>				
+				</div>
+				<div class="media-heading">
+				<p style="margin-bottom:0; padding-left:0px;" id="vt100">'.$data["title"].'</p>
+				<p style="margin-bottom:0; padding-left:0px;" id="t104"><small style="color: #cccccc;">'.$data['tube_view'].' views </small> - <small style="color: #cccccc;">'.$data['tube_like'].' Suka</small></p>
+				<p style="margin-bottom:0; padding-left:0px;" id="t104"><small>'.$data["createon"].'</small></p>				
+				</div></a>
+		    </div>			
+		  </div>  
+		</div>
+		</div>
+		';
+		}
+		?>
+	</div>
+	<div id="mn901" class="tab-pane fade">
+		<?php
+		$result=$this->db->query("select * from tbl_eyetube where publish_on<='".date("Y-m-d H:i:s")."' order by tube_view desc LIMIT 4");
+		foreach($result->result_array() as $data)
+		{
+		$eyetube_id=$data['eyetube_id'];
+		echo '
+		<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
+		<div class="row">
+		  <div class="media">
+		    <div class="media-left">	      
+			  	<div id="set100">
+				<a href="'.base_url().'eyetube/detail/'.$eyetube_id.'">
+				  <img src="'.base_url().'systems/eyetube_storage/'.$data['thumb1'].'" class="img-polaroid thumbnail2" alt="Lights" style="width:100% !important;margin: 0 auto;">
+				<div id="v106"><img src="'.base_url().'img/button_icon.png" class="img img-responsive" style="width:45px;height:45px;"></div>
+				</div>
+				<div class="media-heading">
+				<p style="margin-bottom:0; padding-left:0px;" id="vt100">'.$data["title"].'</p>
+				<p style="margin-bottom:0; padding-left:0px;" id="t104"><small style="color:#6A5ACD">'.$data['tube_view'].' views </small> - <small style="color:#6A5ACD">'.$data['tube_like'].' Suka</small></p>				
+				<p style="margin-bottom:0; padding-left:0px;" id="t104"><small>'.$data["createon"].'</small></p>				
+				</div></a>				
+		    </div>
+		  </div>
+		</div>
+		</div>
+		';
+		}
+		?>
+	</div>
+    <div id="mn902" class="tab-pane fade">
+		<?php
+		$result=$this->db->query("select * from tbl_eyetube where title like'%video kamu%' and active='1' order by eyetube_id desc limit 4");
+		foreach($result->result_array() as $data)
+		{
+		$eyetube_id=$data['eyetube_id'];
+		echo '
+		<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
+		<div class="row">
+		  <div class="media">
+		    <div class="media-left">	      
+			  	<div id="set100">
+				<a href="'.base_url().'eyetube/detail/'.$eyetube_id.'">
+				  <img src="'.base_url().'systems/eyetube_storage/'.$data['thumb1'].'" class="img-polaroid thumbnail2" alt="Lights" style="width:100% !important;margin: 0 auto;">
+				<div id="v106"><img src="'.base_url().'img/button_icon.png" class="img img-responsive" style="width:45px;height:45px;"></div>
+				</div>
+				<div class="media-heading">
+				<p style="margin-bottom:0; padding-left:0px;" id="vt100">'.$data["title"].'</p>
+				<p style="margin-bottom:0; padding-left:0px;" id="t104"><small style="color:#6A5ACD">'.$data['tube_view'].' views </small> - <small style="color:#6A5ACD">'.$data['tube_like'].' Suka</small></p>				
+				<p style="margin-bottom:0; padding-left:0px;" id="t104"><small>'.$data["createon"].'</small></p>				
+				</div></a>				
+		    </div>
+		  </div>
+		</div>
+		</div>
+		';
+		}
+		?>
+	</div>
+</div>
+</div>
+</div>
+
+<br><br>
+
+		  <!-- konten eyeNews dan eyeMe -->
+		  <div class="row">
+		  	<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12" style="padding: unset;">
+	  			<img src="<?php echo base_url(); ?>assets/new_assets/ic_eyenews.png">
+	  			<span style="font-family: Montserratbold; color:#CD4F41;font-size: 20px;">eyeNews</span>
+	  			<img src="<?php echo base_url(); ?>assets/new_assets/line-eyenews.png">
+	  			<br>
+	  			<br>
+
+			<?php
+			$cmd1=$this->db->query("select * from tbl_eyenews where publish_on<='".date("Y-m-d H:i:s")."' order by eyenews_id desc LIMIT 7");
+			$cmd2=$cmd1->result_array();
+			?>
+			<div id="myCarousel2" class="carousel slide" data-ride="carousel" data-interval="false">
+			  <div class="carousel-inner">
+				<?php
+				$data=$cmd2[0];
+				?>
+				<a href="<?=base_url()?>eyenews/detail/<?=$data["eyenews_id"]?>">
+				  <div style="cursor:pointer" class="item active" onclick='window.location.assign("<?=base_url()?>eyenews/detail/<?=$data["eyenews_id"]?>")'>
+				  <div class="set100">
+					<img src="<?=base_url().'systems/eyenews_storage/'.$data['pic'];?>" alt="Norway" class="img img-responsive">  
+					<div id="setcenter100"><?=$data["title"]?></div>
+				  </div>        
+				  </div>
+				</a>
+			  </div>
+			</div> 
+				
+	  			<div>
+	  				<div style="color: #CD4F41;">BERITA TERKAIT</div>
+<?php
+	  			$i = 0;
+	  			foreach ($eyenews_similar as $similar)
+	  			{
+	  				if ($i != 0)
+	  				{
+?>
+	  					<div>
+	  						<a href="<?php echo base_url(); ?>eyenews/detail/<?= $similar['eyenews_id'];?>">
+	  							<img src="<?php echo base_url(); ?>assets/new_assets/chevron-right-red.png"> <?= $similar['title']; ?>
+	  						</a>
+	  					</div>
+<?php			
+	  				}
+	  				$i++;
+	  			}
+?>
+	  			</div>
+		  	</div>
+		  	<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12" style="padding: unset;">
+		  		<img src="<?php echo base_url(); ?>assets/new_assets/ic-eyeme.png">
+		  		<span style="font-family: Montserratbold; color:#59B9E9;font-size: 20px;">eyeMe</span>
+		  		<img src="<?php echo base_url(); ?>assets/new_assets/line-eyeme.png" style="width: 378px;">
+				<br><br>
+			<div class="col-lg-12 col-md-12" style="padding-top:0px;padding-left:0px;padding-right:0px;">
+			<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+
+							<img src="http://fakeimg.pl/365x365/" class="img-responsive">
+						</div>
+
+						<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+							<img src="http://fakeimg.pl/365x365/" class="img-responsive">
+						</div>
+
+						<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+							<img src="http://fakeimg.pl/365x365/" class="img-responsive">
+						</div>
+			</div>
+			<div class="col-lg-12 col-md-12" style="padding-top:14px;padding-left:0px;padding-right:0px;">
+			<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+							<img src="http://fakeimg.pl/365x365/" class="img-responsive">
+						</div>
+
+						<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+							<img src="http://fakeimg.pl/365x365/" class="img-responsive">
+						</div>
+
+						<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+							<img src="http://fakeimg.pl/365x365/" class="img-responsive">
+						</div>
+			</div>
+			<div class="col-lg-12 col-md-12" style="padding-top:14px;padding-left:0px;padding-right:0px;">
+			<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+							<img src="http://fakeimg.pl/365x365/" class="img-responsive">
+						</div>
+
+						<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
+							<img src="http://fakeimg.pl/365x365/" class="img-responsive">
+						</div>
+
+						<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+							<img src="http://fakeimg.pl/365x365/" class="img-responsive">
+						</div>
+			</div>				
+		  	</div>
+		  </div>
+		  <br><br>
+<div class="col-lg-7 col-md-7" style="padding-top:0px;padding-bottom:0px;padding-right:15px;padding-left:0px;">
+<div class="col-lg-12 col-md-12">
+<div class="row">
+
+<ul class="nav nav-tabs">
+<li class="active"><a data-toggle="tab" href="#mn700" class="border" id="tb102">TERPOPULER</a></li>
+<li><a data-toggle="tab" href="#mn701" class="border" id="tb102">REKOMENDASI</a></li>  
+<li><a data-toggle="tab" href="#mn702" class="border" id="tb102">USIA MUDA</a></li>
+</ul>
+
+<div class="tab-content"><br>
+
+	<div id="mn700" class="tab-pane fade in active">
+	<?php
+	$cmd1=$this->db->query("select * from tbl_eyenews where publish_on<='".date("Y-m-d H:i:s")."' order by news_view desc limit 3");
+	foreach($cmd1->result_array() as $data){
+	print '<a href="'.base_url().'/eyenews/detail/'.$data["eyenews_id"].'" id="a100"><div class="media" style="cursor:pointer" onclick=\'window.location.assign("'.base_url().'/eyenews/detail/'.$data["eyenews_id"].'")\'>
+	  <div class="media-left">
+		<img src="systems/eyenews_storage/'.$data['thumb1'].'" class="media-object" style="width:130px;height:90px;"><br>
+	  </div>
+	  <div class="media-body">
+		<h6 class="media-heading" id="t103">'.date("d M Y",strtotime($data["publish_on"])).'</h6>
+		<p id="p101">'.$data["title"].'<p>
+		<p>'.substr($data["description"],0,87).'...</p>
+	  </div>
+	  <hr style="border-bottom:solid #ccc 1px;margin-top:0px;"></hr>
+	</div></a>'; 
+	}
+	?> 	
+	</div>
+	<div id="mn701" class="tab-pane fade">
+	<?php
+	$cmd1=$this->db->query("select * from tbl_eyenews where publish_on<='".date("Y-m-d H:i:s")."' order by eyenews_id desc LIMIT 3");
+	foreach($cmd1->result_array() as $data){
+	print '<a href="'.base_url().'/eyenews/detail/'.$data["eyenews_id"].'" id="a100"><div class="media" style="cursor:pointer" onclick=\'window.location.assign("'.base_url().'/eyenews/detail/'.$data["eyenews_id"].'")\'>
+	  <div class="media-left">
+		<img src="systems/eyenews_storage/'.$data['thumb1'].'" class="media-object" style="width:130px;height:90px;"><br>
+	  </div>
+	  <div class="media-body">
+		<h6 class="media-heading" id="t103">'.date("d M Y",strtotime($data["publish_on"])).'</h6>
+		<p id="p101">'.$data["title"].'
+		'.substr($data["description"],0,100).'...</p>
+	  </div>
+	  <hr style="border-bottom:solid #ccc 1px;margin-top:0px;"></hr>
+	</div></a>';
+	}
+	?> 	
+	</div>
+    <div id="mn702" class="tab-pane fade">
+	<?php
+	$cmd1=$this->db->query("select * from tbl_eyenews where publish_on<='".date("Y-m-d H:i:s")."' AND news_type in ('usia muda') order by news_view desc limit 3");
+	foreach($cmd1->result_array() as $data){
+	print '<a href="'.base_url().'/eyenews/detail/'.$data["eyenews_id"].'" id="a100"><div class="media" style="cursor:pointer" onclick=\'window.location.assign("'.base_url().'/eyenews/detail/'.$data["eyenews_id"].'")\'>
+	  <div class="media-left">
+		<img src="systems/eyenews_storage/'.$data['thumb1'].'" class="media-object" style="width:130px;height:90px;"><br>
+	  </div>
+	  <div class="media-body">
+		<h6 class="media-heading" id="t103">'.date("d M Y",strtotime($data["publish_on"])).'</h6>
+		<p id="p101">'.$data["title"].'
+		'.substr($data["description"],0,100).'...</p>
+	  </div>
+	  <hr style="border-bottom:solid #ccc 1px;margin-top:0px;"></hr>
+	</div></a>'; 
+	}
+	?>		
+	</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12" style="padding: unset;">
+		  		<img src="<?php echo base_url(); ?>assets/new_assets/ic_eyemarket.png">
+		  		<span style="font-family: Montserratbold; color:#F9C241;font-size: 20px;">eyeMarket</span>
+		  		<img src="<?php echo base_url(); ?>assets/new_assets/line-eyemarket.png" style="width: 301px;">
+				<br><br>
+			<div class="col-lg-12 col-md-12" style="padding-top:0px;padding-left:0px;padding-right:0px;">
+				<?php
+					$cmd1=$this->db->query("select * from tbl_product where id_product order by id_product desc LIMIT 3")->result_array();
+					foreach($cmd1 as $row1){		
+				?>			
+				<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+					 <div class="media">
+						<div class="media-left">
+						  <img src="systems/club_logo/7566LOGO UNTUK APLIKASI.jpg" class="media-object img img-circle" id="img4">
+						</div>
+						<div class="media-body" style="padding-bottom:25px;">
+						<a href="store_profile" id="a7">EYEMARKET</a><br>
+						<a href="store_profile" id="a8">2 Store</a>
+						</div>
+					  </div><a href="eyemarket_detail?id_product=<?php echo $row1['id_product']; ?>" id="a3">
+					<div class="thumbnail drop-shadow2" style="height:70% !important;width:100% !important;margin-bottom:0px;position:relative">
+					<div class="thumbnail3">
+						<img src="systems/eyemarket_storage/<?=$row1["pic"]?>" alt="Lights" class="img-polaroid thumbnail2" alt="Lights" style="width:100% !important;margin: 0 auto;">
+						</div>
+						</a>
+						   <div class="pull-right bottom-align-text">
+								<a href="eyemarket_detail?id_product=<?php echo $row1['id_product']; ?>" class="btn btn-success btn-sm" id="set8" role="button"><i class="fa fa-shopping-cart"></i> BELI</a>
+							</div>    
+						<div class="producttitle bottom-align-text"><?php echo $row1['product_name'];  ?></div>
+						<div class="productprice">
+						<div class="pricetext bottom-align-text">Rp.<?php echo number_format($row1['price'],2,",","."); ?></div>
+						</div>
+					</div> 					
+				</div>
+				<?php
+				}
+				?>
+			</div>			
+</div>
+		  
+
+</div>
+</div>
 <?php
 }
 ?>
-
 <!-- update rizki start -->
 <div class="container-fluid mobile-view" style="display:none">
   <div class="row">
@@ -513,3 +814,4 @@ print '
   </div>
 </div>
 <!-- update rizki end -->
+

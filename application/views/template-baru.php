@@ -57,21 +57,6 @@ $array[] =  $row_ads;
 <!DOCTYPE html>
 <html>
 <head>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-4600267368341699",
-    enable_page_level_ads: true
-  });
-</script>
-<!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-4600267368341699",
-    enable_page_level_ads: true
-  });
-</script>-->
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php
 if(!isset($meta["share"]))
@@ -93,7 +78,6 @@ if(!isset($meta["share"]))
 <meta name="geo.placename"content="Indonesia" />
 <link rel="publisher" href="https://plus.google.com/u/1/105520415591265268244" />
 <link rel="canonical" href="https://www.eyesoccer.id" />
-<meta name="google-site-verification" content="EdjwDGdhwMeQEVZLYz7a3obpjM7g2yMDB899fGBG26c" />
 <!-- End of SEO Meta Tags-->
 
 <!-- Begin of Facebook Open graph data-->
@@ -129,11 +113,240 @@ else{
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>bs/css/mycss.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>bs/css/soccer-field.css"><!--update rizki-->
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>bs/css/arf-styles.css">
-<link rel="stylesheet" type="text/css" href="<?=base_url()?>bs/jquery/jquery-ui.css">
+
+	<link rel="stylesheet" href="<?php echo base_url(); ?>bs/css/owl.carousel.min.css ">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>bs/css/owl.theme.default.min.css ">
+	<style type="text/css">
+		.kontainer
+		{
+			max-width: 1080px;
+				margin: 20px auto;
+				background: #fff;
+				overflow: hidden;
+				padding: 10px;
+		}
+		@font-face
+		{
+        	font-family: "Montserrat";
+        	src: url('../assets/new_assets/montserrat/Montserrat-Regular.otf');
+	    }
+		@font-face
+		{
+        	font-family: "Montserratbold";
+        	src: url('../assets/new_assets/montserrat/Montserrat-Bold.otf');
+	    }
+		body
+		{
+			font-family: Montserrat;
+		}
+		a, a:link, a:hover
+		{
+			color: unset;
+			text-decoration: unset;	
+		}
+		li
+		{
+			list-style-type: none;
+		}
+		.lingkup-box
+		{
+			padding: 0px;
+			width: 184px;
+		}
+		.box-jadwal
+		{
+			float: left;
+			/*width: 105%;*/
+		}
+
+		.arrow-box-jadwal
+		{
+			position: relative;
+			z-index: 1;
+			cursor: pointer;
+			/*height: 60px;*/
+		}
+
+		.isi-box-jadwal
+		{
+			position: absolute;
+			top: 1px;
+			z-index: 2;
+			padding: 2px;
+			width: 184px;
+			height: 68px;
+			/*font-size: 10px;*/
+		}
+
+		.time-box-jadwal
+		{
+			padding-bottom: 12%;
+			font-size: 10px;
+		}
+
+		.club-box-jadwal
+		{
+			font-size: 12px;
+			padding-bottom: 2px;
+		}
+
+		.score-box-jadwal
+		{
+			float: right;
+		}
+		.btn-trending-hijau
+		{
+			color: #fff;
+		    background-color: #62a555;
+		    /* border-color: #0a0a0a; */
+		    border-radius: unset;
+		    /* height: 52%; */
+		    padding: 5px 16px;
+		    border: unset;
+		}
+		.tag-trending
+		{
+			border-radius: 20px;
+		    font-size: 10px;
+		    padding: 5px 18px;
+		    border: unset;
+		    background-color: #f5f5f5;
+		    color: #62a555;
+		}
+		.tag-trending:hover
+		{
+			color: white;
+		}
+		.keterangan-club
+		{
+			text-align: left;
+			font-size: 12px;
+			color: #615d5d;
+			padding-top: 13px;
+		}
+		.box-ket-player
+		{
+			font-size: 12px;
+		}
+		.news-main-title
+		{
+			position: absolute;
+		    top: 368px;
+		    left: 2%;
+		    color: #ffffff
+		}
+		/* Flashing */
+		.hover13 figure:hover img {
+			opacity: 1;
+			-webkit-animation: flash 1.5s;
+			animation: flash 1.5s;
+		}
+		@-webkit-keyframes flash {
+			0% {
+				opacity: .4;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+		@keyframes flash {
+			0% {
+				opacity: .4;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+		/* Shine */
+		.hover14 figure {
+			position: relative;
+		}
+		.hover14 figure::before {
+			position: absolute;
+			top: 0;
+			left: -75%;
+			z-index: 2;
+			display: block;
+			content: '';
+			width: 50%;
+			height: 100%;
+			background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+			background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+			-webkit-transform: skewX(-25deg);
+			transform: skewX(-25deg);
+		}
+		.hover14 figure:hover::before {
+			-webkit-animation: shine .75s;
+			animation: shine .75s;
+		}
+		@-webkit-keyframes shine {
+			100% {
+				left: 125%;
+			}
+		}
+		@keyframes shine {
+			100% {
+				left: 125%;
+			}
+		}
+
+
+		body{
+    background: #fff;
+	}
+	.navbar, .dropdown-menu{
+	background:#f9c241;
+	border: none;
+
+	}
+	.nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .dropdown-menu>li>a, .dropdown-menu>li{
+	  border-bottom: 3px solid transparent;
+	}
+	.nav>li>a:focus, .nav>li>a:hover,.nav .open>a, .nav .open>a:focus, .nav .open>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+	  border-bottom: 3px solid transparent;
+	  background: rgba(154, 154, 154, 0.27);
+	}
+	.navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .navbar-toggle{
+	 color: #9b7a2a;
+	}
+	.dropdown-menu{
+		  -webkit-box-shadow: none;
+		box-shadow:none;
+	}
+
+	.nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1){
+	  border-bottom: #9b7a2a 2px solid;
+	}
+	.nav li:hover:nth-child(8n+2), .nav li.active:nth-child(8n+2){
+	  border-bottom: #9b7a2a 2px solid;
+	}
+	.nav li:hover:nth-child(8n+3), .nav li.active:nth-child(8n+3){
+	  border-bottom: #9b7a2a 2px solid;
+	}
+	.nav li:hover:nth-child(8n+4), .nav li.active:nth-child(8n+4){
+	  border-bottom: #9b7a2a 2px solid;
+	}
+	.nav li:hover:nth-child(8n+5), .nav li.active:nth-child(8n+5){
+	  border-bottom: #9b7a2a 2px solid;
+	}
+	.nav li:hover:nth-child(8n+6), .nav li.active:nth-child(8n+6){
+	  border-bottom: #9b7a2a 2px solid;
+	}
+	.nav li:hover:nth-child(8n+7), .nav li.active:nth-child(8n+7){
+	  border-bottom: #9b7a2a 2px solid;
+	}
+	.nav li:hover:nth-child(8n+8), .nav li.active:nth-child(8n+8){
+	  border-bottom: #9b7a2a 2px solid;
+	}
+
+	.navbar-toggle .icon-bar{
+		color: #fff;
+		background: #000000;
+	}		
+	</style>
 <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/bootstrap-select.css">
-<script src="<?=base_url()?>bs/jquery/jquery-3.2.1.js"></script>
+<script src="<?=base_url()?>bs/jquery/jquery-3.2.1.min.js"></script>
 <script src="<?=base_url()?>bs/js/datatables.js"></script>
-<script src="<?=base_url()?>bs/jquery/jquery-ui.js"></script>
 <style>
 .tab-pane{
   border-top:none;
@@ -188,20 +401,20 @@ elseif (stripos( $agent, 'Safari') !== false)
 <div id="gotop">
 
 </div>
-<nav class="navbar navbar-fixed-top" style="position: sticky;margin-bottom: 0;border-width:0; clear:both;display:block;position:relative">
+<!--<nav class="navbar navbar-fixed-top" style="position: sticky;margin-bottom: 0;border-width:0; clear:both;display:block;position:relative">-->
 
 
-<div class="hidden-md hidden-lg" id="header_mobile" style="background:url('<?=base_url()?>img/h14.png')no-repeat center center;background-size:cover;padding:7px;">
+<div class="hidden-md hidden-lg" id="header_mobile" style="background:url('<?=base_url()?>img/h21.png')no-repeat center center;background-size:cover;padding:7px;">
 <div class="container-fluid" >
 <div class="row">
-<div class="col-xs-6 col-sm-6 text-right"><a href="<?=base_url()?>" ><img src="<?=base_url()?>img/m1.png" class="img img-responsive" id="img2"></a></div>
+<div class="col-xs-6 col-sm-6 text-right"><a href="<?=base_url()?>" ><img src="<?=base_url()?>img/logo2.png" class="img img-responsive" id="img2"></a></div>
 <?php
 if(!isset($_SESSION["member_id"]))
 {
 	?>
 	
 <!--<div class="col-xs-6 col-sm-6 pull-right"><a data-toggle="modal" data-target="#mlogin" class="btn btn-warning btn-sm btn-block clickable">MASUK</a></div>-->
-<div class="col-xs-6 col-sm-6 pull-right" style="line-height: 38px;text-align: right;"><a data-toggle="modal" data-target="#mlogin" class="clickable" style="color:white;font-weight:bold">DAFTAR</a></div>
+<div class="col-xs-6 col-sm-6 pull-right" style="line-height: 38px;text-align: right;"><a data-toggle="modal" data-target="#mlogin" class="clickable btn btn-primary" style="color:white;font-weight:bold">DAFTAR</a></div>
 	<?php
 }
 else{
@@ -220,34 +433,35 @@ else{
 <div class="container">
 <div class="col-lg-3 col-md-3" style="margin:auto"><a href="<?=base_url()?>"><img src="<?=base_url()?>img/logo2.png" style="width:150px;" title="EyeSoccer"></a><!--<a href="<?=base_url()?>eyeprofile" class="btn btn-danger btn-sm" style="border-radius:0px;">DAFTAR LIGA USIA MUDA</a>--></div>
 <div class="col-lg-6 col-md-6 text-center">
-<a href="<?=base_url()?>eyeprofile/pemain" title="Pemain" id="a101">Pemain <!--<img src="<?=base_url()?>img/pemain_hitam.png" class="img img-responsive" style="width:35px;height:35px;display:inline;">--></a>&emsp;&ensp;
-<a href="<?=base_url()?>eyeprofile/klub" title="Klub" id="a101">Klub <!--<img src="<?=base_url()?>img/club_hitam.png" class="img img-responsive" style="width:35px;height:35px;display:inline;">--></a>&emsp;&ensp;
-<a href="<?=base_url()?>eyenews" title="Eyenews" id="a101">EyeNews <!--<img src="<?=base_url()?>img/eyenews_nav.png" class="img img-responsive" style="width:35px;height:35px;display:inline;">--></a>&emsp;&ensp;
-<a href="<?=base_url()?>eyetube" title="Eyetube" id="a101">Eyetube <!--<img src="<?=base_url()?>img/eyetube_nav.png" class="img img-responsive" style="width:35px;height:35px;display:inline;">--></a>&emsp;&ensp;
-<a href="<?=base_url()?>eyevent" title="Eyevent" id="a101">EyeVent <!--<img src="<?=base_url()?>img/eyevent_nav.png" class="img img-responsive" style="width:35px;height:35px;display:inline;">--></a>&emsp;&ensp;
+<!--
+<a href="<?=base_url()?>eyeprofile/pemain" title="Pemain"><img src="<?=base_url()?>img/pemain_hitam.png" class="img img-responsive" style="width:35px;height:35px;display:inline;"></a>&emsp;&ensp;
+<a href="<?=base_url()?>eyeprofile/klub" title="Klub"><img src="<?=base_url()?>img/club_hitam.png" class="img img-responsive" style="width:35px;height:35px;display:inline;"></a>&emsp;&ensp;
+<a href="<?=base_url()?>eyenews" title="Eyenews"><img src="<?=base_url()?>img/eyenews_nav.png" class="img img-responsive" style="width:35px;height:35px;display:inline;"></a>&emsp;&ensp;
+<a href="<?=base_url()?>eyetube" title="Eyetube"><img src="<?=base_url()?>img/eyetube_nav.png" class="img img-responsive" style="width:35px;height:35px;display:inline;"></a>&emsp;&ensp;
+<a href="<?=base_url()?>eyevent" title="Eyevent"><img src="<?=base_url()?>img/eyevent_nav.png" class="img img-responsive" style="width:35px;height:35px;display:inline;"></a>&emsp;&ensp;
+-->
 </div>
 <div class="col-lg-3 col-md-3" style="margin:auto">
 <?php
 if(!isset($_SESSION["member_id"]))
 {
-	?>
-	
-<!--<div class="col-xs-6 col-sm-6 pull-right"><a data-toggle="modal" data-target="#mlogin" class="btn btn-warning btn-sm btn-block clickable">MASUK</a></div>-->
-<a data-toggle="modal" data-target="#mlogin" style="border-radius:0px;float:right;" id="a101">&nbsp; Log In Member</a><a href="<?=base_url()?>eyeprofile" style="border-radius:0px;float:right;" id="a101"> Pendaftaran Liga | </a>
-
-<!--<a data-toggle="modal" data-target="#mlogin" href="" class="btn btn-danger btn-sm" style="border-radius:0px;float:right;">LOG IN MEMBER</a>-->	<?php
+?>
+<a data-toggle="modal" data-target="#mlogin" style="float:right;" id="a101">&nbsp; Masuk</a><a href="<?=base_url()?>eyeprofile" class="btn btn-primary" style="float:right;" id="a102"> Pendaftaran Liga </a>
+<?php
 }
 else{
-	$prof_pic=$this->db->query("SELECT b.pic,a.name FROM tbl_member a left JOIN tbl_gallery b ON b.id_gallery=a.profile_pic WHERE a.id_member='".$_SESSION["member_id"]."'")->row_array();
-	?>
-	<a href="<?=base_url()?>home/member_area" class="pull-right"><img src="<?=base_url()?>systems/img_storage/<?php if(!empty($prof_pic["pic"])){echo $prof_pic["pic"];}else{echo "no-person.jpg";}?>" class="img img-circle" width="30px" height="30px"/>   <small style="color:black;"><?=$prof_pic["name"]?> </small></a>
-	<?php
+$prof_pic=$this->db->query("SELECT b.pic,a.name FROM tbl_member a left JOIN tbl_gallery b ON b.id_gallery=a.profile_pic WHERE a.id_member='".$_SESSION["member_id"]."'")->row_array();
+?>
+<a href="<?=base_url()?>home/member_area" class="pull-right"><img src="<?=base_url()?>systems/img_storage/<?php if(!empty($prof_pic["pic"])){echo $prof_pic["pic"];}else{echo "no-person.jpg";}?>" class="img img-circle" width="30px" height="30px"/>   <small style="color:black;"><?=$prof_pic["name"]?> </small></a>
+<?php
 }
 ?>
 </div>
 </div>
 </nav>
 <!--<img src="<?=base_url()?>img/lw1.png" class="img img-responsive hidden-xs hidden-sm">-->
+
+
 <style>
 .btn-circle {
     width: 30px;
@@ -672,10 +886,8 @@ else{
 
 <script src="<?=base_url()?>bs/js/dist/circleMenu.min.js"></script>
 <!-- update rizki end-->
-<link rel="stylesheet" type="text/css" href="<?=base_url()?>bs/jquery/jquery-ui.css">
 
-<script src="<?=base_url()?>bs/jquery/jquery-3.2.1.js"></script>
-<script src="<?=base_url()?>bs/jquery/jquery-ui.js"></script>
+<script src="<?=base_url()?>bs/jquery/jquery-3.2.1.min.js"></script>
 <script src="<?=base_url()?>bs/js/bootstrap.min.js"></script>
 <script src="<?=base_url()?>bs/js/jquery.bxslider.js"></script><!-- update rizki-->
 <script src="<?=base_url()?>bs/js/directorySlider.js"></script><!-- update rizki-->
@@ -785,7 +997,17 @@ body { padding-bottom: 70px; }
   </div>
 </nav>-->
 
-<div class="col-lg-12 col-xs-12" style="background-color:#A6A6A6;border-color:#2ED1A2;position:relative;bottom:0px;left:0px;display:block;width:100%"><center><h5 style="color:white;line-height:200%">&copy; eyesoccer.id 2016 | <a href="<?=base_url()?>home/tentang_kami" style="text-decoration:none;color:white">Tentang Kami</a></h5></center></div> 
+<div class="col-lg-12 col-xs-12" style="background-color:#4a4a4a;border-color:#2ED1A2;position:relative;bottom:0px;left:0px;display:block;width:100%">
+<center><h5 style="color:white;line-height:200%"> 
+<a href="<?=base_url()?>home/tentang_kami" style="text-decoration:none;color:white">Tentang Kami</a> &emsp;
+<a href="<?=base_url()?>home/tentang_kami" style="text-decoration:none;color:white">Kebijakan Privasi</a> &emsp;
+<a href="<?=base_url()?>home/tentang_kami" style="text-decoration:none;color:white">Kontak</a> &emsp;
+<a href="<?=base_url()?>home/tentang_kami" style="text-decoration:none;color:white">Karir</a>
+<br> &copy; 2017 eyesoccer.id All Rights Reserved &emsp; 
+<a href="<?=base_url()?>home/facebook" style="text-decoration:none;color:white"><img src="<?=base_url()?>assets/images/ic_facebook.png" class="img img-responsive" style="width:12px;height:20px;display:inline;"></a>
+<a href="<?=base_url()?>home/twitter" style="text-decoration:none;color:white"><img src="<?=base_url()?>assets/images/ic_twitter.png" class="img img-responsive" style="width:19px;height:16px;display:inline;"></a>
+<a href="<?=base_url()?>home/instagram" style="text-decoration:none;color:white"><img src="<?=base_url()?>assets/images/ic_instagram.png" class="img img-responsive" style="width:20px;height:20px;display:inline;" ></a>
+</h5></center></div> 
 <style>
 #back1{
 	-webkit-border-bottom-right-radius: 20px;
@@ -892,14 +1114,6 @@ $.ajax({
 });
 
 </script>
-</body>
-</html>
-
-
-
-
-
-</body>
 <script>
 if(window.outerWidth < 780){
 	$(".desktop-view").hide();
@@ -937,4 +1151,163 @@ $(window).scroll(function() {
  });
 </script>
 
+<script>
+$(function(){
+    $('.button-checkbox').each(function(){
+    	var $widget = $(this),
+			$button = $widget.find('button'),
+			$checkbox = $widget.find('input:checkbox'),
+			color = $button.data('color'),
+			settings = {
+					on: {
+						icon: 'glyphicon glyphicon-check'
+					},
+					off: {
+						icon: 'glyphicon glyphicon-unchecked'
+					}
+			};
+
+		$button.on('click', function () {
+			$checkbox.prop('checked', !$checkbox.is(':checked'));
+			$checkbox.triggerHandler('change');
+			updateDisplay();
+		});
+
+		$checkbox.on('change', function () {
+			updateDisplay();
+		});
+
+		function updateDisplay() {
+			var isChecked = $checkbox.is(':checked');
+			// Set the button's state
+			$button.data('state', (isChecked) ? "on" : "off");
+
+			// Set the button's icon
+			$button.find('.state-icon')
+				.removeClass()
+				.addClass('state-icon ' + settings[$button.data('state')].icon);
+
+			// Update the button's color
+			if (isChecked) {
+				$button
+					.removeClass('btn-default')
+					.addClass('btn-' + color + ' active');
+			} 
+            else 
+            { 
+                $button
+					.removeClass('btn-' + color + ' active')
+					.addClass('btn-default');
+			}
+		}
+		function init() {
+			updateDisplay();
+			// Inject the icon if applicable
+			if ($button.find('.state-icon').length == 0) {
+				$button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
+			}
+		}
+		init();
+	});
+});
+</script>
+	<script src="<?=base_url()?>bs/jquery/jquery-3.2.1.min.js"></script>
+
+	<script type="text/javascript" src="<?php echo base_url(); ?>bs/js/owl.carousel.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$('#jadwal-slider').owlCarousel({
+			    loop:true,
+			    margin:0,
+			    items:6,
+			    autoWidth:true,
+			    nav:false,
+			    itemsDesktop:[1199,6],
+			    itemsDesktopSmall:[979,3],
+			});
+
+			var jadwalSlider = $('#jadwal-slider');
+			jadwalSlider.owlCarousel();
+
+			$('.jadwalPrev').click(function()
+			{
+			    jadwalSlider.trigger('prev.owl.carousel');
+			});
+
+			$('.jadwalNext').click(function()
+			{
+			    jadwalSlider.trigger('next.owl.carousel');
+			});
+
+			$('#club-slider').owlCarousel({
+			    loop: false,
+			    margin:-2.5,
+			          autoWidth:true,
+			          nav: false,
+			          items: 2,
+			          dots: true,
+			          dotsEach:true,
+			          responsiveClass: true,
+			          center: false,
+			          responsiveRefreshRate: true
+			});
+
+			// $("#durasi-video").click();
+
+			$("#haha").one("load", function()
+			{
+			  	// do stuff
+			}).each(function()
+			{
+			  	if(this.complete) $('#durasi-video').click();
+			});
+		});
+
+        function getDuration()
+        {
+            var video 	= document.getElementById('eyetube-satu');
+            var durasi 	= parseInt(video.duration);
+
+            var total ="";
+
+            if (durasi < 59)
+            {
+            	total = durasi;
+            	$('#durasi').append("00: "+total);
+            }
+            else
+            if (durasi > 59 && durasi < 119)
+            {
+            	total = durasi - 60;
+            	$('#durasi').append("01: "+total);
+            }
+            else
+           	if (durasi > 120 && durasi < 179)
+           	{
+       			total = durasi - 120;
+       			$('#durasi').append("02: "+total);
+           	}
+       	    else
+   	    	if (durasi > 180 && durasi < 239)
+   	    	{
+   				total = durasi - 180;
+   				$('#durasi').append("03: "+total);
+   	    	}
+    	    else
+	    	if (durasi > 240 && durasi < 299)
+	    	{
+				total = durasi - 180;
+				$('#durasi').append("04: "+total);
+	    	}
+	    	else
+	    	if (durasi > 300 && durasi < 359)
+	    	{
+				total = durasi - 180;
+				$('#durasi').append("05: "+total);
+	    	}
+        }
+		
+	</script>
+</body>
 </html>

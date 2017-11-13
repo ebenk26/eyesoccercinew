@@ -9,20 +9,6 @@ $get_player=$this->db->query("SELECT * FROM tbl_player WHERE player_id='".$pm["i
 }	
 ?>
 <br />
-<style>
-	.control-label{
-		line-height: 34px;
-	}
-	.form-control{
-	}
-	#player_id {
-    position: relative;
-    z-index: 10000;
-	}
-	.ui-autocomplete {
-		 z-index: 9999 !important;
-	}
-</style>
 <div class="col-lg-5 col-xs-12">
  <div class="col-lg-3 col-xs-6 ">
  <img src="<?=base_url()?>systems/img_storage/<?=$pic?>" class="img  text-center blah" width="100%" /> <br />
@@ -105,7 +91,7 @@ $get_player=$this->db->query("SELECT * FROM tbl_player WHERE player_id='".$pm["i
 
 </div>
 
-<div class="col-lg-7 col-xs-12 rounded" style="padding:5%;" >
+<div class="col-lg-7 col-xs-12 rounded" style="padding:5%" >
 <div class="col-lg-3 col-xs-4 text-center" style="" >
 <?php
 if($check->num_rows()>0 && $pm["active"]=="1")
@@ -233,73 +219,20 @@ else{
 	<div class="tab-content">
     <div id="pilih_pemain" class="tab-pane fade in active">
       <h3>Pilih Pemain</h3>
-      <form method="post" action="<?=base_url("home/request_player")?>" id="reg_form_player" enctype="multipart/form-data">
+      <form method="post" action="<?=base_url("home/request_player")?>" id="reg_form_player">
 		  <small>Sudah terdaftar di database kami? Verifikasi diri anda sekarang !</small>
-		  <div class="form-group" id="t1">
-			<input style="width: 98%;" type='text' placeholder="Masukkan nama pemain yang telah terdaftar" name='player_id' value='' class='auto ui-autocomplete-input' autocomplete='off'>
-			<b style="color:red;">*</b>
-		  </div>
-		  <div class="form-group" id="form_verification_player">
-			<center><h3>Form Verifikasi</h3></center>
-			<div class="form-group" style="border-bottom;1px solid black;">
-				<label class="control-label col-sm-8" for="file_ktp">KTP/Kartu Pelajar/Kartu Mahasiswa/SIM:</label>
-				<div class="col-sm-4">
-				  <input type="file" class="form-control" name="file_ktp" id="file_ktp" accept="image/*">
-				  <b style="color:red;position: absolute;right: 0;top: 10px;">*</b>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-8" for="file_akte">Akte Lahir:</label>
-				<div class="col-sm-4"> 
-				  <input type="file" class="form-control" name="file_akte" id="file_akte" accept="image/*">
-				  <b style="color:red;position: absolute;right: 0;top: 10px;">*</b>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-8" for="file_kk">Kartu Keluarga:</label>
-				<div class="col-sm-4"> 
-				  <input type="file" class="form-control" name="file_kk" id="file_kk" accept="image/*">
-				  <b style="color:red;position: absolute;right: 0;top: 10px;">*</b>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-8" for="file_passport">Passport:</label>
-				<div class="col-sm-4"> 
-				  <input type="file" class="form-control" name="file_passport" id="file_passport" accept="image/*">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-8" for="file_ijazah">Ijazah:</label>
-				<div class="col-sm-4"> 
-				  <input type="file" class="form-control" name="file_ijazah" id="file_ijazah" accept="image/*">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-8" for="file_bukurek">Buku Rekening:</label>
-				<div class="col-sm-4"> 
-				  <input type="file" class="form-control" name="file_bukurek" id="file_bukurek" accept="image/*">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-8" for="file_srtrekssb">Surat Rekomendasi SSB:</label>
-				<div class="col-sm-4"> 
-				  <input type="file" class="form-control" name="file_srtrekssb" id="file_srtrekssb" accept="image/*">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-8" for="file_ibukandung">Nama Ibu Kandung:</label>
-				<div class="col-sm-4"> 
-				  <input type="text" class="form-control" name="file_ibukandung" id="file_ibukandung">
-				  <b style="color:red;position: absolute;right: 0;top: 10px;">*</b>
-				</div>
-			</div>
-			<!--<div class="form-group"> 
-				<div class="col-sm-offset-2 col-sm-10">
-				  <div class="checkbox">
-					<label><input type="checkbox"> Remember me</label>
-				  </div>
-				</div>
-			</div>-->
+		  <div class="form-group" id="t1"><select name="player_id" data-style="" data-live-search="true" class="selectpicker form-control">
+		  <option value="" style="color:white">Pilih Pemain</option>
+		  <?php
+		  $player=$this->db->query("SELECT a.*,b.name as club_name FROM tbl_player a LEFT JOIN tbl_club b ON b.club_id=a.club_id WHERE a.member_id='0' and a.name <>''  ORDER BY a.name ASC ");
+		  foreach($player->result_array() as $pr)
+		  {
+			  ?>
+			  <option value="<?=$pr["player_id"]?>" data-tokens="<?=$pr["club_name"]?>, <?=$pr["name"]?>"><?=$pr["club_name"]?>, <?=$pr["name"]?></option>
+			  <?php
+		  }
+		  ?>
+		  </select>
 		  </div>
 		  <div class="form-group" id="t1"><input type="submit" name="opt1_player" value="Daftarkan Diri" class="btn btn-block" id="btn1"></div>
 	  </form>
@@ -384,34 +317,7 @@ else{
 						}
 					}
 				},
-				file_ibukandung: {
-					validators: {
-						notEmpty: {
-							message: 'Nama ibu tidak boleh kosong.'
-						}
-					}
-				},
-				file_ktp: {
-					validators: {
-						notEmpty: {
-							message: 'File tidak boleh kosong.'
-						},
-					}
-				},
-				file_kk: {
-					validators: {
-						notEmpty: {
-							message: 'File tidak boleh kosong.'
-						},
-					}
-				},
-				file_akte: {
-					validators: {
-						notEmpty: {
-							message: 'File tidak boleh kosong.'
-						},
-					}
-				},
+				
 				
 				}
 		}).on('success.form.bv', function(e) {
@@ -423,19 +329,11 @@ else{
 			
 		});
 		
-		$("[name=player_id]").focusin(function(){
+		$("[name=player_id]").change(function(){
 			if($("[name=player_id]").val()!=""){
 				// alert();
-				// $("#form_verification_player").show();
-			}else{
-				// $("#form_verification_player").hide();
 			}
 		});
-		
-		$(".auto").autocomplete({
-			source: "search_player",
-			minLength: 3
-		}); 
 	})
 </script>
 <br class="clear" style="clear:both" />  

@@ -6,7 +6,6 @@ class Eyeprofile extends CI_Controller {
 	public function __construct(){
         parent::__construct();
 		    $this->load->model('Eyeprofile_model');
-			date_default_timezone_set("Asia/Jakarta");
     }
 	public function index()
 	{	
@@ -994,91 +993,5 @@ else if($nclub>99 & $nclub<999){
 		);
 		echo json_encode($output);
 		exit();
-	}
-	
-	public function update_pemain(){
-		$data["page"]="eyeprofile";
-		
-		if((isset($_GET['player_id']) && isset($_SESSION["member_id"])) || (isset($_GET['player_id']) && isset($_GET["admineye"]))){
-			$query = $this->db->query("select a.*,b.competition from tbl_player  a left join tbl_club b ON b.club_id=a.club_id where a.player_id='".$_GET['player_id']."'");
-			$data["row"] = $query->row();
-			if(isset($_SESSION["member_id"])){
-				$member_id = $_SESSION["member_id"];
-			}else{
-				$member_id = $_GET["id_member"];
-			}
-			$member_player = $this->db->query("SELECT * FROM tbl_member_player WHERE id_member='".$member_id."'");
-			$cek = $member_player->num_rows();
-			$data["player_id"]=$_GET['player_id'];
-			$player_id=$_GET['player_id'];
-			if($cek>0)
-			{
-				// echo "Page Update Pemain";exit();
-				$query2 = $this->db->query('select * from tbl_player_position');
-				$query3 = $this->db->query('select * from tbl_kemampuan_kaki');
-				$query4 = $this->db->query('SELECT * FROM tbl_karir_player where player_id='.$_GET['player_id'].' and timnas=0');
-				$query5 = $this->db->query('SELECT * FROM tbl_karir_player where player_id='.$_GET['player_id'].' and timnas=1');
-				$data["posisi1"] = $query2->result();
-				$data["posisi2"] = $query2->result();
-				$data["kemampuan_kaki"] = $query3->result();
-				$data["karir_player"] = $query4->result();
-				$data["karir_timnas"] = $query5->result();
-				$data["newinsert"] = 0;
-				
-				$querytmp = $this->db->query("select * from tbl_tmp_player where player_id='".$_GET['player_id']."' and newinsert=1");
-				$cektmp = $querytmp->num_rows();
-				if($cektmp>0)
-				{
-					$data["newinsert"] = 1;
-					$query = $this->db->query("select a.*,b.competition from tbl_tmp_player  a left join tbl_club b ON b.club_id=a.club_id where a.player_id='".$_GET['player_id']."'");
-					$data["row"] = $query->row();
-				}
-				
-				$this->load->view('config-session',$data);
-				$data["body"]=$this->load->view('eyeprofile/update_pemain', $data, true);
-				$this->load->view('template-baru',$data);
-			}else{
-				// echo "keluar";exit();
-				header("Refresh:0; url=/eyeprofile/pemain_detail/$player_id");
-			}
-		}else{
-			// echo "keluar";exit();
-			header("Refresh:0; url=/");
-		}
-	}
-	
-	public function post_update_pemain(){
-		// print_r($_POST);
-		// print_r($_FILES);
-		// exit();
-		if(!empty($this->input->post('player_id')) && isset($_SESSION["member_id"])){
-			$player_id = $this->input->post('player_id');
-			$_POST["inserton"]=date('Y-m-d H:i:s');
-			$_POST["newinsert"]=1;
-			if(empty($_FILES['pic']['name'])){
-				unset($_POST['pic']);
-			}else{
-				$pic=$_FILES['pic']['name']; 
-				$pic=rand(10000,99999)."-".$_FILES['pic']['name'];
-				$_POST["pic"]=$pic;
-				move_uploaded_file($_FILES['pic']['tmp_name'], "systems/player_storage/".$pic);
-			}
-			// print_r($_POST);exit();
-			$this->db->trans_start();			
-			$this->db->where('player_id', $player_id);
-			$this->db->update('tbl_tmp_player', $_POST);
-			$this->db->trans_complete();
-			if ($this->db->trans_status() === FALSE)
-			{
-				$result = "update gagal";
-			}else{
-				$result = "update sukses";
-			}
-			header("Refresh:0; url=/eyeprofile/update_pemain?player_id=$player_id");
-			// redirect("/eyeprofile/update_pemain?player_id=".$player_id);
-			echo "<script>alert('".$result."')</script>";
-		}else{
-			redirect("/");
-		}
 	}
 }

@@ -196,7 +196,6 @@ class Eyetube extends CI_Controller {
 		$i++;
 		}
 		$data["array"]=$array;
-		$data["category_name"]=$row["category_name"];
 		$data["eyetube_id"]=$eyetube_id;
 		$data["action"]=$action;
 		$data["page"]="home";

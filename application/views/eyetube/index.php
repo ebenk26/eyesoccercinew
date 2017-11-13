@@ -615,9 +615,3 @@ print "<div class='form-group text-right' style='padding-top:15px;'><a href='".b
 </div>
 </div>
 </div>
-<script>
-	$(function(){
-		var hash = window.location.hash;
-		$("a[href='"+hash+"']").click();
-	})
-</script>

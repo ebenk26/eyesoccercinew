@@ -64,7 +64,7 @@ color: #a9a9a9;
   <li class="active" style="border-radius:0px;"><a data-toggle="tab" href="#mn700" id="a99">JADWAL</a></li>
   <li><a data-toggle="tab" href="#mn701" id="a99">LIVE</a></li>
   <li><a data-toggle="tab" href="#mn702" id="a99">HASIL</a></li>
-  <li><a data-toggle="tab" href="#mn703" id="a99">KLASEMEN</a></li>   
+  <li><a data-toggle="tab" href="#mn703" id="a99">KLASMEN</a></li>   
 </ul>
 <div class="tab-content"><br>
   <div id="mn700" class="tab-pane fade in active">
@@ -77,9 +77,7 @@ color: #a9a9a9;
     <li><a data-target="#myCarousel2" data-slide-to="2" class="mydroplist" todrop="mydropdown">LIGA SPANYOL</a></li>
     <li><a data-target="#myCarousel2" data-slide-to="3" class="mydroplist" todrop="mydropdown">LIGA JERMAN</a></li>
     <li><a data-target="#myCarousel2" data-slide-to="4" class="mydroplist" todrop="mydropdown">LIGA ITALY</a></li>
-	<li><a data-target="#myCarousel2" data-slide-to="5" class="mydroplist" todrop="mydropdown">LIGA PERANCIS</a></li>
-	<li><a data-target="#myCarousel2" data-slide-to="6" class="mydroplist" todrop="mydropdown">LIGA CHAMPIONS</a></li>	
-	<li><a data-target="#myCarousel2" data-slide-to="7" class="mydroplist" todrop="mydropdown">LIGA EUROPA</a></li>	
+	<li><a data-target="#myCarousel2" data-slide-to="5" class="mydroplist" todrop="mydropdown">LIGA PERANCIS</a></li>	
   </ul>
   </div>    
   <div id="myCarousel2" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -342,92 +340,6 @@ foreach($jadwal->result_array() as $data){
     ?>
 	</div>
     </div>	
-<div class="item">
-    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">JADWAL LIGA CHAMPIONS</div><br>
-	<div id="bbm11">
-     <?php
-	
-    $jadwal=$this->db->query("SELECT a.*,c.club_id as club_id_a,d.club_id as club_id_b,c.logo as logo_a,d.logo as logo_b,c.name as club_a,d.name as club_b FROM tbl_jadwal_event a LEFT JOIN tbl_event b ON b.id_event=a.id_event INNER JOIN tbl_club c ON c.club_id=a.tim_a INNER JOIN tbl_club d ON d.club_id=a.tim_b where b.title like '%Champions League%' AND a.jadwal_pertandingan>='".date("Y-m-d H:i:s")."' order by jadwal_pertandingan ASC");
-	
-$jdpertandingan="";
-if($jadwal->num_rows()<1)
-{
-	echo ' <h5 class="text-center" id="t104">Belum ada Jadwal Pertandingan lainnya</h5>';
-}
-foreach($jadwal->result_array() as $data){
-
-    print '
-    <div style="background:#273764;padding:10;color:#ffffff;" class="text-center" id="t104">'.date("d M Y",strtotime($data["jadwal_pertandingan"])).' | '.$data["lokasi_pertandingan"].'</div>
-    <div style="padding-top:10px;"></div>
-    <div class="col-xs-12">
-    <div class="col-xs-5 text-right" style="padding:0px;">
-    <div class="media">
-	<div class="media-body"><small>'.$data["club_a"].'</small></div>
-      <div class="media-right">
-        <img src="'.base_url().'systems/club_logo/'.$data["logo_a"].'" class="media-object" style="width:35px;height:35px;">
-      </div>
-    </div>     
-    </div>
-	
-    <div class="col-xs-2" style="text-align:center; padding: 0px; background:#cccccc; ">
-	<b><small>'.date("H:i",strtotime($data["jadwal_pertandingan"])).' WIB</small></b>	
-	</div>
-    <div class="col-xs-5" style="padding:0px;">
-    <div class="media">
-    <div class="media-left">
-      <img src="'.base_url().'systems/club_logo/'.$data["logo_b"].'" class="media-object" style="width:35px;height:35px;">
-    </div>
-    <div class="media-body"><small>'.$data["club_b"].'</small></div>
-    </div>     
-    </div>	
-    </div><br><br>';
-    }
-    ?>
-	</div>
-    </div>	
-<div class="item">
-    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">JADWAL LIGA EUROPA</div><br>
-	<div id="bbm11">
-     <?php
-	
-    $jadwal=$this->db->query("SELECT a.*,c.club_id as club_id_a,d.club_id as club_id_b,c.logo as logo_a,d.logo as logo_b,c.name as club_a,d.name as club_b FROM tbl_jadwal_event a LEFT JOIN tbl_event b ON b.id_event=a.id_event INNER JOIN tbl_club c ON c.club_id=a.tim_a INNER JOIN tbl_club d ON d.club_id=a.tim_b where b.title like '%Europa League%' AND a.jadwal_pertandingan>='".date("Y-m-d H:i:s")."' order by jadwal_pertandingan ASC");
-	
-$jdpertandingan="";
-if($jadwal->num_rows()<1)
-{
-	echo ' <h5 class="text-center" id="t104">Belum ada Jadwal Pertandingan lainnya</h5>';
-}
-foreach($jadwal->result_array() as $data){
-
-    print '
-    <div style="background:#273764;padding:10;color:#ffffff;" class="text-center" id="t104">'.date("d M Y",strtotime($data["jadwal_pertandingan"])).' | '.$data["lokasi_pertandingan"].'</div>
-    <div style="padding-top:10px;"></div>
-    <div class="col-xs-12">
-    <div class="col-xs-5 text-right" style="padding:0px;">
-    <div class="media">
-	<div class="media-body"><small>'.$data["club_a"].'</small></div>
-      <div class="media-right">
-        <img src="'.base_url().'systems/club_logo/'.$data["logo_a"].'" class="media-object" style="width:35px;height:35px;">
-      </div>
-    </div>     
-    </div>
-	
-    <div class="col-xs-2" style="text-align:center; padding: 0px; background:#cccccc; ">
-	<b><small>'.date("H:i",strtotime($data["jadwal_pertandingan"])).' WIB</small></b>	
-	</div>
-    <div class="col-xs-5" style="padding:0px;">
-    <div class="media">
-    <div class="media-left">
-      <img src="'.base_url().'systems/club_logo/'.$data["logo_b"].'" class="media-object" style="width:35px;height:35px;">
-    </div>
-    <div class="media-body"><small>'.$data["club_b"].'</small></div>
-    </div>     
-    </div>	
-    </div><br><br>';
-    }
-    ?>
-	</div>
-    </div>	
   </div>
   </div>
   </div>
@@ -443,8 +355,6 @@ foreach($jadwal->result_array() as $data){
     <li><a data-target="#myCarousel3" data-slide-to="3" class="mydroplist" todrop="mydropdown">LIGA JERMAN</a></li>
     <li><a data-target="#myCarousel3" data-slide-to="4" class="mydroplist" todrop="mydropdown">LIGA ITALY</a></li>
 	<li><a data-target="#myCarousel3" data-slide-to="5" class="mydroplist" todrop="mydropdown">LIGA PERANCIS</a></li>	
-	<li><a data-target="#myCarousel3" data-slide-to="6" class="mydroplist" todrop="mydropdown">LIGA CHAMPIONS</a></li>	
-	<li><a data-target="#myCarousel3" data-slide-to="7" class="mydroplist" todrop="mydropdown">LIGA EUROPA</a></li>	
   </ul>
   </div>    
   <div id="myCarousel3" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -684,84 +594,6 @@ foreach($jadwal->result_array() as $data){
 			?>
 	</div>
     </div>	
-<div class="item">
-    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">LIVE LIGA CHAMPIONS</div><br>
-	<div id="bbm11">
-		<?php
-		$jadwal=$this->db->query("SELECT a.*,c.club_id as club_id_a,d.club_id as club_id_b,c.logo as logo_a,d.logo as logo_b,c.name as club_a,d.name as club_b FROM tbl_jadwal_event a LEFT JOIN tbl_event b ON b.id_event=a.id_event INNER JOIN tbl_club c ON c.club_id=a.tim_a INNER JOIN tbl_club d ON d.club_id=a.tim_b where a.live_pertandingan!='' AND b.title like '%Champions League%' AND a.jadwal_pertandingan>='".date("Y-m-d H:i:s")."' order by jadwal_pertandingan ASC");
-			$jdpertandingan="";
-			if($jadwal->num_rows()<1)
-			{
-				echo ' <h5 class="text-center" id="t104">Belum ada Pertandingan Live lainnya</h5>';
-			}
-			foreach($jadwal->result_array() as $data){
-			$jampertandingan=strtotime($data["jadwal_pertandingan"]);
-			$jamsekarang=strtotime(date("Y-m-d H:i:s"));
-			$pertandingan=$jamsekarang-$jampertandingan;
-			$menit=floor($pertandingan/60);
-
-			$sec=($pertandingan-($menit*60));
-			if($menit<10 && $menit>0)
-			{
-				$menit='0'.$menit;
-			}
-			if($menit>=90)
-			{
-				$menit='90';
-				$sec="00";
-			}
-			if($menit<0)
-			{
-				$menit='00';
-				$sec="00";
-			}
-			print '
-							<h5 id="t102">'.$data["club_a"].' VS '.$data["club_b"].'</h5>
-			<small id="t103">'.date("d M Y - H:i:s",strtotime($data["jadwal_pertandingan"])).' WIB | '.$data["lokasi_pertandingan"].'</small><div class="pull-right" style="background:#E7251C;padding-top:3px;padding-bottom:3px;padding-left:9px;padding-right:9px;width:auto;;color:#fff;"><i>LIVE di '.$data["live_pertandingan"].'</i></div>
-			<hr style="margin-top:5px;"></hr>';
-			}
-			?>
-	</div>
-    </div>	
-<div class="item">
-    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">LIVE LIGA EUROPA</div><br>
-	<div id="bbm11">
-		<?php
-		$jadwal=$this->db->query("SELECT a.*,c.club_id as club_id_a,d.club_id as club_id_b,c.logo as logo_a,d.logo as logo_b,c.name as club_a,d.name as club_b FROM tbl_jadwal_event a LEFT JOIN tbl_event b ON b.id_event=a.id_event INNER JOIN tbl_club c ON c.club_id=a.tim_a INNER JOIN tbl_club d ON d.club_id=a.tim_b where a.live_pertandingan!='' AND b.title like '%Europa League%' AND a.jadwal_pertandingan>='".date("Y-m-d H:i:s")."' order by jadwal_pertandingan ASC");
-			$jdpertandingan="";
-			if($jadwal->num_rows()<1)
-			{
-				echo ' <h5 class="text-center" id="t104">Belum ada Pertandingan Live lainnya</h5>';
-			}
-			foreach($jadwal->result_array() as $data){
-			$jampertandingan=strtotime($data["jadwal_pertandingan"]);
-			$jamsekarang=strtotime(date("Y-m-d H:i:s"));
-			$pertandingan=$jamsekarang-$jampertandingan;
-			$menit=floor($pertandingan/60);
-
-			$sec=($pertandingan-($menit*60));
-			if($menit<10 && $menit>0)
-			{
-				$menit='0'.$menit;
-			}
-			if($menit>=90)
-			{
-				$menit='90';
-				$sec="00";
-			}
-			if($menit<0)
-			{
-				$menit='00';
-				$sec="00";
-			}
-			print '
-							<h5 id="t102">'.$data["club_a"].' VS '.$data["club_b"].'</h5>
-			<small id="t103">'.date("d M Y - H:i:s",strtotime($data["jadwal_pertandingan"])).' WIB | '.$data["lokasi_pertandingan"].'</small><div class="pull-right" style="background:#E7251C;padding-top:3px;padding-bottom:3px;padding-left:9px;padding-right:9px;width:auto;;color:#fff;"><i>LIVE di '.$data["live_pertandingan"].'</i></div>
-			<hr style="margin-top:5px;"></hr>';
-			}
-			?>
-	</div>
-    </div>	
   </div>
   </div>
   </div>
@@ -776,8 +608,6 @@ foreach($jadwal->result_array() as $data){
     <li><a data-target="#myCarousel4" data-slide-to="3" class="mydroplist" todrop="mydropdown">LIGA JERMAN</a></li>
     <li><a data-target="#myCarousel4" data-slide-to="4" class="mydroplist" todrop="mydropdown">LIGA ITALY</a></li>
 	<li><a data-target="#myCarousel4" data-slide-to="5" class="mydroplist" todrop="mydropdown">LIGA PERANCIS</a></li>	
-	<li><a data-target="#myCarousel4" data-slide-to="6" class="mydroplist" todrop="mydropdown">LIGA CHAMPIONS</a></li>	
-	<li><a data-target="#myCarousel4" data-slide-to="7" class="mydroplist" todrop="mydropdown">LIGA EUROPA</a></li>	
   </ul>
   </div>    
   <div id="myCarousel4" class="carousel slide" data-ride="carousel" data-interval="false">
@@ -1031,90 +861,6 @@ foreach($jadwal->result_array() as $data){
     }
     ?>
 	</div>
-    </div>
-<div class="item">
-    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">HASIL LIGA CHAMPIONS</div><br>
-	<div id="bbm11">
-		<?php
-    $jadwal=$this->db->query("SELECT a.*,c.club_id as club_id_a,d.club_id as club_id_b,c.logo as logo_a,d.logo as logo_b,c.name as club_a,d.name as club_b FROM tbl_jadwal_event a LEFT JOIN tbl_event b ON b.id_event=a.id_event INNER JOIN tbl_club c ON c.club_id=a.tim_a INNER JOIN tbl_club d ON d.club_id=a.tim_b where b.title like '%Champions League%' AND a.jadwal_pertandingan<='".date("Y-m-d H:i:s")."' order by jadwal_pertandingan DESC");
-	
-$jdpertandingan="";
-if($jadwal->num_rows()<1)
-{
-	echo ' <h5 class="text-center" id="t104">Belum ada Score Pertandingan lainnya</h5>';
-}
-foreach($jadwal->result_array() as $data){
-    print '
-	<h5 class="text-center" id="t104">'.date("d M Y",strtotime($data["jadwal_pertandingan"])).'</h5>
-    <div style="padding-top:10px;"></div>
-    <div class="col-xs-12" style="border:solid #a9a9a9 1px;padding:3px;">
-    <div class="col-xs-5 text-right" style="padding:0px;">
-    <div class="media row">
-      <div class="media-body"><smal>'.$data["club_a"].'</small></div>
-      <div class="media-right">
-        <img src="'.base_url().'systems/club_logo/'.$data["logo_a"].'" class="media-object" style="width:35px;height:35px;">
-      </div>
-    </div>     
-    </div>
-	
-    <div class="col-xs-2" style="text-align: center;padding: 0; ">
-	<b>'.$data["score_a"].' - '.$data["score_b"].'</b>
-	
-	</div>
-    <div class="col-xs-5">
-    <div class="media row">
-    <div class="media-left">
-      <img src="'.base_url().'systems/club_logo/'.$data["logo_b"].'" class="media-object" style="width:35px;height:35px;">
-    </div>
-    <div class="media-body"><small>'.$data["club_b"].'</small></div>
-    </div>     
-    </div>
-    </div><br><br>';
-    }
-    ?>
-	</div>
-    </div>	
-<div class="item">
-    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">HASIL LIGA EUROPA</div><br>
-	<div id="bbm11">
-		<?php
-    $jadwal=$this->db->query("SELECT a.*,c.club_id as club_id_a,d.club_id as club_id_b,c.logo as logo_a,d.logo as logo_b,c.name as club_a,d.name as club_b FROM tbl_jadwal_event a LEFT JOIN tbl_event b ON b.id_event=a.id_event INNER JOIN tbl_club c ON c.club_id=a.tim_a INNER JOIN tbl_club d ON d.club_id=a.tim_b where b.title like '%Europa League%' AND a.jadwal_pertandingan<='".date("Y-m-d H:i:s")."' order by jadwal_pertandingan DESC");
-	
-$jdpertandingan="";
-if($jadwal->num_rows()<1)
-{
-	echo ' <h5 class="text-center" id="t104">Belum ada Score Pertandingan lainnya</h5>';
-}
-foreach($jadwal->result_array() as $data){
-    print '
-	<h5 class="text-center" id="t104">'.date("d M Y",strtotime($data["jadwal_pertandingan"])).'</h5>
-    <div style="padding-top:10px;"></div>
-    <div class="col-xs-12" style="border:solid #a9a9a9 1px;padding:3px;">
-    <div class="col-xs-5 text-right" style="padding:0px;">
-    <div class="media row">
-      <div class="media-body"><smal>'.$data["club_a"].'</small></div>
-      <div class="media-right">
-        <img src="'.base_url().'systems/club_logo/'.$data["logo_a"].'" class="media-object" style="width:35px;height:35px;">
-      </div>
-    </div>     
-    </div>
-	
-    <div class="col-xs-2" style="text-align: center;padding: 0; ">
-	<b>'.$data["score_a"].' - '.$data["score_b"].'</b>
-	
-	</div>
-    <div class="col-xs-5">
-    <div class="media row">
-    <div class="media-left">
-      <img src="'.base_url().'systems/club_logo/'.$data["logo_b"].'" class="media-object" style="width:35px;height:35px;">
-    </div>
-    <div class="media-body"><small>'.$data["club_b"].'</small></div>
-    </div>     
-    </div>
-    </div><br><br>';
-    }
-    ?>
-	</div>
     </div>	
   </div>
   </div>
@@ -1136,7 +882,7 @@ foreach($jadwal->result_array() as $data){
   <div id="myCarousel5" class="carousel slide" data-ride="carousel" data-interval="false">
   <div class="carousel-inner">
     <div class="item active">
-    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">KLASEMEN LIGA 1 INDONESIA</div><br>
+    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">KLASMEN LIGA 1 INDONESIA</div><br>
 
 			<?php
 		$clasment=$this->db->query("SELECT * FROM tbl_clasment where title like '%Liga indonesia%' order by clasment_id");	
@@ -1154,7 +900,7 @@ foreach($jadwal->result_array() as $data){
 
     </div>
     <div class="item">
-    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">KLASEMEN LIGA INGGRIS</div><br>
+    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">KLASMEN LIGA INGGRIS</div><br>
 
 					<?php
 		$clasment=$this->db->query("SELECT * FROM tbl_clasment where title like '%Liga inggris%' order by clasment_id");	
@@ -1172,7 +918,7 @@ foreach($jadwal->result_array() as $data){
 
     </div>
     <div class="item">
-    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">KLASEMEN LIGA SPANYOL</div><br>
+    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">KLASMEN LIGA SPANYOL</div><br>
 
 		<?php
 		$clasment=$this->db->query("SELECT * FROM tbl_clasment where title like '%Liga spanyol%' order by clasment_id");	
@@ -1190,7 +936,7 @@ foreach($jadwal->result_array() as $data){
 
     </div>    
     <div class="item">
-    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">KLASEMEN LIGA JERMAN</div><br>
+    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">KLASMEN LIGA JERMAN</div><br>
 
 		<?php
 		$clasment=$this->db->query("SELECT * FROM tbl_clasment where title like '%Liga jerman%' order by clasment_id");	
@@ -1208,7 +954,7 @@ foreach($jadwal->result_array() as $data){
 
     </div>
     <div class="item">
-    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">KLASEMEN LIGA ITALY</div><br>
+    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">KLASMEN LIGA ITALY</div><br>
 	
 		<?php
 		$clasment=$this->db->query("SELECT * FROM tbl_clasment where title like '%Liga italia%' order by clasment_id");	
@@ -1226,7 +972,7 @@ foreach($jadwal->result_array() as $data){
 	
     </div>
 <div class="item">
-    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">KLASEMEN LIGA PERANCIS</div><br>
+    <div style="background:#273746;padding:10px;color:#ffffff;" class="text-center" id="a5">KLASMEN LIGA PERANCIS</div><br>
 
 <?php
 		$clasment=$this->db->query("SELECT * FROM tbl_clasment where title like '%Liga perancis%' order by clasment_id");	

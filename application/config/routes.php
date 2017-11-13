@@ -50,14 +50,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'home';
-$route['sitemap\.xml'] = "sitemap";
-$route['eyenews_sitemap\.xml'] = "eyenews_sitemap";
-$route['eyeprofile_player_sitemap\.xml'] = "eyeprofile_player_sitemap";
-$route['eyeprofile_club_sitemap\.xml'] = "eyeprofile_club_sitemap";
-$route['eyeprofile_official_sitemap\.xml'] = "eyeprofile_official_sitemap";
-
-//$route['seo/sitemap\.xml'] = "seo/sitemap";
-
-
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

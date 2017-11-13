@@ -38,14 +38,6 @@ echo "<a style='margin-left:5px;' href='".base_url()."/eyeprofile/pemain#tab-5' 
 }else{
 echo "<a style='margin-left:5px;' href='".base_url()."/eyeprofile/pemain#tab-6' class='btn btn-info btn-sm'>Kembali</a>";
 }
-if(isset($_SESSION["member_id"]))
-{
-	$_SESSION["player_id"] = $pemain["player_id"];
-	$member_player = $this->db->query("SELECT * FROM tbl_member_player WHERE id_member='".$_SESSION["member_id"]."'")->row_array();
-	if($member_player["id_player"] == $pemain["player_id"]){
-		echo '<button style="float: right;margin-right: 5px;" onclick="update_pemain('.$pemain["player_id"].')" class="btn btn-success btn-sm">Update</button>';
-	}
-}
 ?>
 <?php
 if($pemain["competition"] != "Liga Indonesia 1" &&$pemain["competition"] != "Liga Indonesia 2"){
@@ -405,14 +397,4 @@ if($pemain["competition"] == "Liga Indonesia 1" ||$pemain["competition"] == "Lig
 			$('#enlargeImageModal').modal('show');
 		});
 	});
-	function update_pemain(id_pemain){
-		<?php
-			if(isset($_SESSION["member_id"])){
-		?>
-				window.location="<?php echo site_url("eyeprofile/update_pemain?player_id=".$pemain["player_id"]) ?>";
-		<?php
-			}
-		?>
-		
-	}
 </script>

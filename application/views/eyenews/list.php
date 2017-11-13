@@ -18,12 +18,12 @@
 <div class="col-xs-12 col-sm-12">
 <div class="row">
 <div class="col-xs-6 col-sm-6"><div class="row" style="padding:2px;" id="t101"><a href="<?=base_url()?>eyenews/search/Liga" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Liga</a></div></div>
-<div class="col-xs-6 col-sm-6"><div class="row" style="padding:2px;" id="t101"><a href="<?=base_url()?>eyenews/search/Berita" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Peristiwa</a></div></div>
+<div class="col-xs-6 col-sm-6"><div class="row" style="padding:2px;" id="t101"><a href="<?=base_url()?>eyenews/search/Berita" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Berita</a></div></div>
 </div>
 </div><br><br>
 <div class="col-xs-12 col-sm-12">
 <div class="row">
-<div class="col-xs-6 col-sm-6"><div class="row" style="padding:2px;" id="t101"><a href="<?=base_url()?>eyenews/search/Usia Muda" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Pembinaan</a></div></div>
+<div class="col-xs-6 col-sm-6"><div class="row" style="padding:2px;" id="t101"><a href="<?=base_url()?>eyenews/search/Usia Muda" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Usia</a></div></div>
 <div class="col-xs-6 col-sm-6"><div class="row" style="padding:2px;" id="t101"><a href="<?=base_url()?>eyenews/search/Soccer Sains" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Soccer Sains</a></div></div>
 </div>
 </div><br><br>
@@ -60,12 +60,10 @@
 
     $link_array = explode('?',urldecode($page));
     if($link_array[0]=="Usia Muda"){
-      $link_new_sub = "Pembinaan";
-    }else if($link_array[0]=="Berita"){
-      $link_new_sub = "Peristiwa";
+      $link_new_sub = "Usia";
     }else{
-		$link_new_sub = $link_array[0];
-	}
+      $link_new_sub = $link_array[0];
+    }
 ?>
 <h3 id="t100" style="font-size:15px;margin-top:0;"><?php echo "- ".$link_new_sub; ?>
 <?php
@@ -258,12 +256,12 @@ echo "</ul></div>";
 <div class="col-lg-12 col-md-12">
 <div class="row">
 <div class="col-lg-6 col-md-6"><div class="row" style="padding:2px;" id="t101"><a href="<?=base_url()?>eyenews/search/Liga" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Liga</a></div></div>
-<div class="col-lg-6 col-md-6"><div class="row" style="padding:2px;" id="t101"><a href="<?=base_url()?>eyenews/search/Berita" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Peristiwa</a></div></div>
+<div class="col-lg-6 col-md-6"><div class="row" style="padding:2px;" id="t101"><a href="<?=base_url()?>eyenews/search/Berita" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Berita</a></div></div>
 </div>
 </div><br><br>
 <div class="col-lg-12 col-md-12">
 <div class="row">
-<div class="col-lg-6 col-md-6"><div class="row" style="padding:2px;" id="t101"><a href="<?=base_url()?>eyenews/search/Usia Muda" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Pembinaan</a></div></div>
+<div class="col-lg-6 col-md-6"><div class="row" style="padding:2px;" id="t101"><a href="<?=base_url()?>eyenews/search/Usia Muda" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Usia</a></div></div>
 <div class="col-lg-6 col-md-6"><div class="row" style="padding:2px;" id="t101"><a href="<?=base_url()?>eyenews/search/Soccer Sains" class="btn btn-warning btn-block" style="background:#FFE01E;color:#3d3d3d;border:solid #FFE01E 1px;">Soccer Sains</a></div></div>
 </div>
 </div><br><br>

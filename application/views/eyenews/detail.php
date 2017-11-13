@@ -41,17 +41,7 @@
 </style>
 <div class="col-lg-8 col-md-8 parent-image"><div class="hidden-xs hidden-sm"><br></div>
 <a href="<?=base_url()?>eyenews" class="btn btn-info btn-sm">Home</a>
-<a href="<?=base_url()?>eyenews/search/<?=$row['news_type']?>" class="btn btn-warning btn-sm">
-<?php 
-if($row['news_type'] =="Berita"){
-	$row['news_type']="Peristiwa";
-}else if($row['news_type']=="Usia Muda"){
-	$row['news_type']="Pembinaan";
-}else{
-	$row['news_type']=$row['news_type'];
-}
-echo $row['news_type'];
-?></a>
+<a href="<?=base_url()?>eyenews/search/<?=$row['news_type']?>" class="btn btn-warning btn-sm"><?php echo $row['news_type'];?></a>
 <?php
 if($row['sub_category_name']=="" || $row['sub_category_name']=="0"){
 print "";
@@ -76,11 +66,6 @@ print '<a href="'.base_url().'eyenews/search/'.$row['news_type'].'?sub='.$row['s
 <p class="detail">
 <?php
 $linklainnya=$this->db->query("select * from tbl_eyenews where eyenews_id!='".$eyenews_id."' and publish_on<='".date("Y-m-d H:i:s")."' and news_type='".$row['news_type']."' order by publish_on DESC limit 3");
-$cek = $linklainnya->num_rows();
-if($cek<1)
-{
-	$linklainnya=$this->db->query("select * from tbl_eyenews where eyenews_id!='".$eyenews_id."' and publish_on<='".date("Y-m-d H:i:s")."' and news_type='Berita' order by publish_on DESC limit 3");
-}
 // $linklainnya=$this->db->query("select * from tbl_eyenews where news_type='".$row['news_type']."' and publish_on<='".date("Y-m-d H:i:s")."' order by publish_on DESC limit 1,1");
 $description=explode("<p>",$row['description']);
 //print_r($description);
@@ -289,18 +274,19 @@ print '
 $cmd_ads2=$this->db->query("select * from tbl_ads where ads_id='20'");
 $row_ads2=$cmd_ads2->row_array();
 print'
-<img src="'.base_url().'systems/eyeads_storage/'.$row_ads2['pic'].'" class="img img-responsive hidden-xs hidden-sm">';
+<!--<img src="'.base_url().'systems/eyeads_storage/'.$row_ads2['pic'].'" class="img img-responsive hidden-xs hidden-sm">-->
+';
 ?>
-<!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- ads unit 3 -->
-<!--<ins class="adsbygoogle"
+<ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-6403991612334960"
      data-ad-slot="6701528663"
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script>-->
+</script>
   <h1 id="t100"><i class="fa fa-play-circle-o fa-lg"></i> Video Terbaru</h1> 
   <hr style="margin-top:10px;margin-bottom:10px;"></hr>
   <?php
@@ -317,7 +303,7 @@ print'
     <div class="media drop-shadow">
     
       <div class="media-left ">
-        <a href="'.base_url().'eyetube/detail/'.$eyetube_id.'"><img src="'.base_url().'systems/eyetube_storage/'.$row4['thumb1'].'" class="media-object " id="img4" ></a>
+        <a href="'.base_url().'eyetube/detail/'.$eyetube_id.'"><img src="'.base_url().'systems/eyetube_storage/'.$row4['pic'].'" class="media-object " id="img4" ></a>
       </div>
       <div class="media-body ">
         <a href="'.base_url().'eyetube/detail/'.$eyetube_id.'" id="a4" class=""><p class="media-heading">'.$row4['title'].'</p>
@@ -332,9 +318,9 @@ print'
 
 </div>
 </div>
-<!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- ads 1 -->
-<!--<ins class="adsbygoogle"
+<ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-6403991612334960"
      data-ad-slot="1685766471"
@@ -344,14 +330,14 @@ print'
 </script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- ads 2 -->
-<!--<ins class="adsbygoogle"
+<ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-6403991612334960"
      data-ad-slot="5820452607"
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script>-->
+</script>
 <script>
 $(document).ready(function(){
   pw=parseInt($(".parent-image").width());
